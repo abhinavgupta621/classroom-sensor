@@ -1,4 +1,4 @@
-import { dataUrl, PUBLIC } from './hosted';
+import { dataUrl, HOSTED, PUBLIC } from './hosted';
 import { useCallback, useEffect, useState } from 'react';
 import { AudioLines, BookOpenText, CalendarDays, Moon, Search, Sun, Users, type LucideIcon } from 'lucide-react';
 import { Toaster } from '@/components/ui/sonner';
@@ -78,7 +78,7 @@ export default function App() {
             </nav>
             <div className="mt-auto space-y-2 px-2 text-xxs text-muted-foreground">
               <div>{PUBLIC ? 'One instructor' : `Prof. ${data.professor}`} · {data.roster.length} students · {data.sessions.length} classes, {day(data.sessions[0].date)} – {day(data.sessions.at(-1)!.date)}</div>
-              <div>{PUBLIC ? 'Public edition: every name is a pseudonym, faces are blurred, and there is no audio or transcript text.' : 'Internal research pilot. Runs on this Mac only.'}</div>
+              <div>{PUBLIC ? 'By Abhinav Gupta and Tess Rubin. Public edition: every name is a pseudonym, faces are blurred, and there is no audio or transcript text.' : `Internal research pilot by Abhinav Gupta and Tess Rubin. ${HOSTED ? 'Private copy.' : 'Runs on this Mac.'}`}</div>
               <button onClick={() => setDark(!dark)} className="flex items-center gap-1.5 hover:text-foreground">{dark ? <Sun className="size-3.5" /> : <Moon className="size-3.5" />}{dark ? 'Light' : 'Dark'}</button>
             </div>
           </aside>

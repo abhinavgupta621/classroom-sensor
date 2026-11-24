@@ -36,7 +36,7 @@ export default function Method({ d }: { d: Portal }) {
     <div className="page-in mx-auto max-w-5xl space-y-10">
       <div className="space-y-1">
         <h1 className="text-xl font-semibold tracking-tight">Method and findings</h1>
-        <p className="text-sm text-muted-foreground">Automated attendance and participation from existing Panopto recordings. {d.course}, {d.section}: {d.roster.length} students, {d.sessions.length} classes (Sep 22 – Oct 8, 2026). Built Nov 2026.</p>
+        <p className="text-sm text-muted-foreground">Automated attendance and participation from existing Panopto recordings. {d.course}, {d.section}: {d.roster.length} students, {d.sessions.length} classes (Sep 22 – Oct 8, 2026). Built Nov 2026 by Abhinav Gupta and Tess Rubin.</p>
       </div>
 
       <section className="space-y-3">
