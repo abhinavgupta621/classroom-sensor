@@ -1,0 +1,128 @@
+\newcommand{\sessiontable}{%
+\begin{table*}[t]\centering\small
+\caption{The five observed sessions. Face px: median face size. Camera: share of the recording with $\geq$3 faces in view. Recognised: students named for $\geq$3\,s; glimpsed: named for under 3\,s. Wrong sec.: people matched from another section (certain errors, any duration). Minutes of instructor and non-instructor speech from voiceprints. Calls: instructor name calls detected. Named: student comments attributed.}
+\label{tab:sessions}
+\resizebox{\textwidth}{!}{\begin{tabular}{lrrrrrrrrrr}\toprule
+Class & Video & Face px & Camera & Recognised & Glimpsed & Wrong sec. & Instr. min & Student min & Calls & Named\\\midrule
+Sep 22 & 1024$\times$576 & 29 & 33\% & 42 & 1 & 1 & 50 & 39 & 10 & 32 \\
+Sep 24 & 1024$\times$576 & 30 & 26\% & 41 & 3 & 4 & 52 & 22 & 13 & 30 \\
+Sep 29 & 1024$\times$576 & 33 & 22\% & 36 & 1 & 4 & 57 & 26 & 4 & 12 \\
+Oct 6 & 1024$\times$576 & 33 & 24\% & 33 & 3 & 0 & 33 & 57 & 4 & 21 \\
+Oct 8 & 1920$\times$1080 & 57 & 11\% & 41 & 2 & 1 & 37 & 11 & 3 & 7 \\
+\bottomrule\end{tabular}}\end{table*}}
+
+\newcommand{\idtable}{%
+\begin{table}[t]\centering\small
+\caption{Identification on the 1080p session (5,785 faces $\geq$24\,px, sampled every 2\,s) against a 229-student, four-section gallery. Certain errors are matches to another section; estimated correctness scales them by 229/172.}
+\label{tab:id}
+\resizebox{\columnwidth}{!}{\begin{tabular}{rrrrrrr}\toprule
+$\tau$ & Named & Share & Certain err. & Est.\ correct & Students & Wrong people\\\midrule
+0.40 & 2,579 & 44.6\% & 19 & 99.0\% & 44 & 16 \\
+0.45 & 2,025 & 35.0\% & 3 & 99.8\% & 43 & 3 \\
+0.50 & 1,393 & 24.1\% & 0 & 100.0\% & 42 & 0 \\
+0.55 & 765 & 13.2\% & 0 & 100.0\% & 37 & 0 \\
+0.60 & 304 & 5.3\% & 0 & 100.0\% & 27 & 0 \\
+\bottomrule\end{tabular}}\end{table}}
+
+\newcommand{\vertable}{%
+\begin{table}[t]\centering\small
+\caption{Verification from the classroom's own footage: 2,733 same-seat pairs (1\,s apart) and 19,801 same-frame pairs. The last column is the chance an unknown face clears the bar against at least one of 70 enrolled students.}
+\label{tab:ver}
+\begin{tabular}{rrrr}\toprule
+$\tau$ & Same person & False match / pair & False match vs 70\\\midrule
+0.300 & 99.5\% & 3.596\% & 92.3\% \\
+0.363 & 99.2\% & 0.828\% & 44.1\% \\
+0.400 & 98.8\% & 0.278\% & 17.7\% \\
+0.450 & 97.9\% & 0.081\% & 5.5\% \\
+0.500 & 96.9\% & 0.010\% & 0.7\% \\
+\bottomrule\end{tabular}\end{table}}
+
+\newcommand{\studenttable}{%
+\begin{footnotesize}\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{0.95}
+\begin{longtable}{lrrrrrrrrrl}
+\caption{Every student, by anonymous id. Seconds recognised on camera per class (``--'' = not recognised), classes present ($\geq$3\,s), named comments ($^\dagger$ includes voice matches from a class the student was not seen in), named talk seconds, times called on, and whether a voiceprint was learned.}\label{tab:students}\\\toprule
+Student & Sep 22 & Sep 24 & Sep 29 & Oct 6 & Oct 8 & Cls & Cmts & Talk s & Calls & Voice\\\midrule\endfirsthead
+\toprule Student & Sep 22 & Sep 24 & Sep 29 & Oct 6 & Oct 8 & Cls & Cmts & Talk s & Calls & Voice\\\midrule\endhead
+S01 & 134 & 25 & 55 & 65 & -- & 4 & 0 & 0 & 1 &  \\
+S02 & 404 & 118 & 158 & 177 & 211 & 5 & 0 & 0 & 0 &  \\
+S03 & -- & -- & -- & -- & 4 & 1 & 0 & 0 & 1 &  \\
+S04 & 342 & 207 & 252 & 477 & -- & 4 & 0 & 0 & 0 &  \\
+S05 & -- & -- & -- & -- & 7 & 1 & 9$^\dagger$ & 264 & 1 & yes \\
+S06 & -- & 376 & 40 & 26 & 83 & 4 & 0 & 0 & 0 &  \\
+S07 & 498 & 117 & 119 & 12 & -- & 4 & 3 & 80 & 2 & yes \\
+S08 & 10 & 1 & -- & 406 & 120 & 3 & 0 & 0 & 0 &  \\
+S09 & -- & -- & 4 & -- & 78 & 2 & 0 & 0 & 0 &  \\
+S10 & 20 & 6 & -- & -- & -- & 2 & 0 & 0 & 0 &  \\
+S11 & 31 & 294 & -- & -- & 187 & 3 & 0 & 0 & 0 &  \\
+S12 & 540 & 368 & 252 & 317 & 273 & 5 & 9 & 108 & 2 & yes \\
+S13 & -- & 65 & 230 & -- & -- & 2 & 0 & 0 & 0 &  \\
+S14 & 200 & 144 & 155 & 73 & 262 & 5 & 0 & 0 & 0 &  \\
+S15 & 229 & -- & 150 & -- & -- & 2 & 0 & 0 & 0 &  \\
+S16 & -- & 2 & 15 & 2 & 103 & 2 & 0 & 0 & 0 &  \\
+S17 & 202 & 71 & 22 & 213 & 85 & 5 & 0 & 0 & 0 &  \\
+S18 & 399 & 322 & 96 & 12 & 261 & 5 & 0 & 0 & 0 &  \\
+S19 & 7 & 286 & 245 & -- & 38 & 4 & 5$^\dagger$ & 117 & 1 & yes \\
+S20 & 121 & 213 & 95 & 237 & 238 & 5 & 0 & 0 & 0 &  \\
+S21 & -- & 37 & -- & 3 & 44 & 3 & 3$^\dagger$ & 110 & 1 & yes \\
+S22 & 2 & -- & -- & 50 & 2 & 1 & 7$^\dagger$ & 190 & 3 & yes \\
+S23 & 100 & 129 & 44 & -- & 109 & 4 & 5$^\dagger$ & 94 & 3 & yes \\
+S24 & 398 & 378 & 66 & 340 & 171 & 5 & 19 & 492 & 2 & yes \\
+S25 & 87 & 348 & -- & 38 & 59 & 4 & 0 & 0 & 0 &  \\
+S26 & -- & 324 & 400 & 683 & 105 & 4 & 0 & 0 & 0 &  \\
+S27 & -- & 248 & 23 & 28 & 71 & 4 & 0 & 0 & 0 &  \\
+S28 & 99 & 212 & -- & 146 & -- & 3 & 0 & 0 & 0 &  \\
+S29 & 220 & 66 & -- & -- & 252 & 3 & 8 & 143 & 1 & yes \\
+S30 & -- & 250 & -- & 480 & 54 & 3 & 4 & 57 & 1 & yes \\
+S31 & 66 & 138 & 110 & 4 & 53 & 5 & 0 & 0 & 0 &  \\
+S32 & 145 & 197 & 189 & 68 & 168 & 5 & 0 & 0 & 0 &  \\
+S33 & 41 & 74 & 33 & 191 & 10 & 5 & 0 & 0 & 0 &  \\
+S34 & -- & -- & -- & -- & -- & 0 & 0 & 0 & 1 &  \\
+S35 & 156 & 18 & 124 & 561 & -- & 4 & 0 & 0 & 0 &  \\
+S36 & 369 & 108 & 338 & 128 & 159 & 5 & 0 & 0 & 1 &  \\
+S37 & 482 & -- & 95 & 203 & -- & 3 & 0 & 0 & 0 &  \\
+S38 & 131 & -- & 143 & 246 & 178 & 4 & 0 & 0 & 0 &  \\
+S39 & 155 & -- & -- & -- & 7 & 2 & 0 & 0 & 0 &  \\
+S40 & -- & -- & -- & -- & -- & 0 & 0 & 0 & 0 &  \\
+S41 & 290 & 264 & 84 & -- & 93 & 4 & 9 & 367 & 3 & yes \\
+S42 & 281 & 188 & 283 & -- & 78 & 4 & 3 & 80 & 3 & yes \\
+S43 & 23 & 50 & 2 & -- & 4 & 3 & 0 & 0 & 0 &  \\
+S44 & 20 & 29 & 167 & 2 & 257 & 4 & 0 & 0 & 0 &  \\
+S45 & 440 & 201 & -- & -- & 55 & 3 & 0 & 0 & 0 &  \\
+S46 & 407 & 262 & 443 & 90 & -- & 4 & 0 & 0 & 0 &  \\
+S47 & -- & -- & -- & 58 & 5 & 2 & 0 & 0 & 0 &  \\
+S48 & 730 & 161 & -- & -- & 81 & 3 & 6$^\dagger$ & 128 & 3 & yes \\
+S49 & -- & -- & -- & -- & 1 & 0 & 2$^\dagger$ & 71 & 1 & yes \\
+S50 & 202 & 89 & 71 & -- & 55 & 4 & 3 & 69 & 1 & yes \\
+S51 & -- & 75 & -- & 22 & 172 & 3 & 0 & 0 & 0 &  \\
+S52 & 79 & 2 & -- & 182 & 168 & 3 & 7 & 150 & 1 & yes \\
+S53 & 387 & 27 & 151 & 2 & -- & 3 & 0 & 0 & 0 &  \\
+S54 & 385 & -- & 265 & 40 & 190 & 4 & 0 & 0 & 1 &  \\
+S55 & 125 & 52 & 378 & 122 & 68 & 5 & 0 & 0 & 0 &  \\
+S56 & 184 & -- & -- & -- & -- & 1 & 0 & 0 & 0 &  \\
+S57 & 51 & 153 & 355 & 399 & -- & 4 & 0 & 0 & 0 &  \\
+S58 & 433 & 134 & 77 & -- & 49 & 4 & 0 & 0 & 0 &  \\
+\bottomrule\end{longtable}\end{footnotesize}}
+
+\newcommand{\voicetable}{%
+\begin{table}[t]\centering\small
+\caption{The 16 learned voiceprints: anchors from instructor name calls, anchors from manual labels, and later comments matched to the print at $\geq$0.50 with a 0.05 margin.}
+\label{tab:voices}
+\begin{tabular}{lrrr}\toprule
+Student & Called & Labelled & Matched\\\midrule
+S05 & 1 & 0 & 8 \\
+S07 & 2 & 0 & 1 \\
+S12 & 1 & 0 & 8 \\
+S19 & 1 & 0 & 4 \\
+S21 & 1 & 0 & 2 \\
+S22 & 1 & 0 & 6 \\
+S23 & 1 & 0 & 4 \\
+S24 & 2 & 0 & 17 \\
+S29 & 1 & 0 & 7 \\
+S30 & 1 & 0 & 3 \\
+S41 & 2 & 0 & 7 \\
+S42 & 2 & 0 & 1 \\
+S48 & 2 & 0 & 4 \\
+S49 & 1 & 0 & 1 \\
+S50 & 1 & 0 & 2 \\
+S52 & 1 & 0 & 6 \\
+\bottomrule\end{tabular}\end{table}}

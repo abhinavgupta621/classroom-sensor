@@ -1,0 +1,369 @@
+@import "tailwindcss";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* One palette, the same family as Abhinav OS and South Park Commons' Pulse: neutral greys,
+   a monochrome accent, and four kind colours that say which part of the site something
+   belongs to. Colour is for meaning, never decoration -- no gradients unless a gradient is
+   the data. */
+:root {
+  --bg: #ffffff;
+  --surface: #f7f7f6;
+  --raised: #ffffff;
+  --line: #ebebea;
+  --line-strong: #d6d6d3;
+  --ink: #1c1c1a;
+  --muted: #6b6b66;
+  --faint: #878781;
+  --accent: #1c1c1a;
+  --accent-ink: #ffffff;
+  --accent-tint: #f0f0ee;
+  --focus: #3d5afe;
+
+  --good: #1c7341;   --good-tint: #e3f4ea;
+  --warn: #8a5200;   --warn-tint: #fff2dc;
+  --bad: #b42318;    --bad-tint: #fdebe9;
+
+  --xmas-red: #c0262d; --xmas-green: #1f6b45; --xmas-gold: #e9b949;
+  --people: #a31f62;  --people-tint: #ffe2ee;
+  --career: #1d5bbf;  --career-tint: #e1ecff;
+  --course: #5b3fc4;  --course-tint: #ede7ff;
+  --claude: #b4532a;  --claude-tint: #fbe9df;
+
+  /* The four CORE cohorts in their own colours: Berkeley Blue, California Gold, SectionA's
+     green and Axe's gray. */
+  --cohort-blue: #002676;  --cohort-blue-ink: #ffffff;
+  --cohort-gold: #fdb515;  --cohort-gold-ink: #002676;
+  --cohort-oski: #3f7d58;  --cohort-oski-ink: #ffffff;
+  --cohort-axe: #6b6f75;   --cohort-axe-ink: #ffffff;
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 6px 16px rgba(0, 0, 0, 0.06);
+  --shadow-pop: 0 8px 28px rgba(0, 0, 0, 0.12);
+}
+
+.dark {
+  --bg: #111111;
+  --surface: #191918;
+  --raised: #1f1f1e;
+  --line: #2b2b29;
+  --line-strong: #3d3d3a;
+  --ink: #f3f3f1;
+  --muted: #a3a39d;
+  --faint: #74746f;
+  --accent: #f3f3f1;
+  --accent-ink: #111111;
+  --accent-tint: #2a2a28;
+  --focus: #8c9eff;
+
+  --good: #7ad9a1;   --good-tint: #173326;
+  --warn: #ffc266;   --warn-tint: #3a2c12;
+  --bad: #ff8a80;    --bad-tint: #3b1a17;
+
+  --xmas-red: #d8444a; --xmas-green: #2b7f55;
+  --people: #ff8cc4;  --people-tint: #3a1a2b;
+  --career: #8db4ff;  --career-tint: #1b2a42;
+  --course: #b9a6ff;  --course-tint: #2a2340;
+  --claude: #f0a07a;  --claude-tint: #3a2419;
+
+  /* Berkeley Blue is nearly black on a dark page; lifted just enough to read as blue. */
+  --cohort-blue: #2a55c4;
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 16px rgba(0, 0, 0, 0.3);
+  --shadow-pop: 0 8px 28px rgba(0, 0, 0, 0.5);
+  color-scheme: dark;
+}
+
+/* Supporter looks (lib/skins.ts): only the page tint, the surfaces and the selected-item tint
+   move, so everything still reads as this site. Section and state colours never change. */
+:root[data-skin="golden"] {
+  --bg: #fffdf8;
+  --surface: #faf6ec;
+  --accent-tint: #f6edd6;
+  --line: #efe8d8;
+}
+.dark[data-skin="golden"] {
+  --bg: #13110c;
+  --surface: #1b1810;
+  --raised: #211d14;
+  --accent-tint: #2e2715;
+  --line: #2f2a1d;
+}
+/* Big Game: the two Cal colours, gold for the surfaces, blue for what's selected, and a
+   scarf-striped band across the top of the sidebar so it reads as an unlock at a glance. */
+:root[data-skin="biggame"] {
+  --bg: #fffbef;
+  --surface: #f6eed3;
+  --accent-tint: #dbe5f5;
+  --line: #e8ddbd;
+  --focus: #1d4f91;
+}
+
+/* The band itself: hidden in the everyday look. */
+.skin-band { display: none; }
+[data-skin] .skin-band {
+  display: block; position: absolute; inset: 0 0 auto 0; height: 5px; pointer-events: none;
+}
+[data-skin="biggame"] .skin-band { background: repeating-linear-gradient(90deg, #003262 0 14px, #fdb515 14px 28px); }
+[data-skin="golden"] .skin-band { background: #e9c46a; height: 3px; }
+.dark[data-skin="biggame"] {
+  --bg: #0e1220;
+  --surface: #141a2b;
+  --raised: #1a2134;
+  --accent-tint: #24304a;
+  --line: #27304a;
+}
+/* Autumn, the default: a warm cream page, harvest-tan surfaces, a rust tint for what's
+   selected, and a band of turning leaves drifting across the top. */
+:root[data-skin="autumn"] {
+  --bg: #fdf8f1;
+  --surface: #f6ecdd;
+  --accent-tint: #f6e0cf;
+  --line: #ecdfcb;
+  --line-strong: #dccbb1;
+  --focus: #b5452a;
+}
+.dark[data-skin="autumn"] {
+  --bg: #14100c;
+  --surface: #1c1610;
+  --raised: #221b14;
+  --accent-tint: #35231a;
+  --line: #30261c;
+  --line-strong: #44362a;
+}
+[data-skin="autumn"] .skin-band {
+  height: 5px;
+  background: repeating-linear-gradient(90deg, #b5452a 0 12px, #d9822b 12px 24px, #e3b23c 24px 36px, #7a3b2e 36px 48px) 0 0 / 48px 100%;
+  animation: leafdrift 6s linear infinite;
+}
+@keyframes leafdrift { to { background-position: 48px 0; } }
+@media (prefers-reduced-motion: reduce) { [data-skin] .skin-band { animation: none; } }
+/* Holiday, the default from late November to New Year: a snow-white page, pine for what's
+   selected, cranberry for focus, and a string of lights along the top that twinkles: two sets
+   of bulbs taking turns. Snow falls behind the page (components/snow.tsx). */
+:root[data-skin="holiday"] {
+  --bg: #fbfaf6;
+  --surface: #f1f3ec;
+  --accent-tint: #dfeadd;
+  --line: #e3e6da;
+  --line-strong: #cdd3c3;
+  --focus: #b3262e;
+  --snow: #b4c6d6;
+}
+.dark[data-skin="holiday"] {
+  --bg: #0e1411;
+  --surface: #141c18;
+  --raised: #19231e;
+  --accent-tint: #1f3328;
+  --line: #25322b;
+  --line-strong: #35463c;
+  --snow: #ffffff;
+}
+[data-skin="holiday"] .skin-band { height: 11px; background: linear-gradient(#1f6b45, #1f6b45) 0 2px / 100% 1px no-repeat; }
+[data-skin="holiday"] .skin-band::before, [data-skin="holiday"] .skin-band::after {
+  content: ""; position: absolute; inset: 0; animation: twinkle 1.4s ease-in-out infinite alternate;
+}
+[data-skin="holiday"] .skin-band::before {
+  background: radial-gradient(circle at 6px 6px, #e23b4e 2.6px, transparent 3.2px) 0 0 / 44px 11px,
+              radial-gradient(circle at 6px 6px, #3fa76a 2.6px, transparent 3.2px) 22px 0 / 44px 11px;
+}
+[data-skin="holiday"] .skin-band::after {
+  background: radial-gradient(circle at 6px 6px, #f0b93a 2.6px, transparent 3.2px) 11px 0 / 44px 11px,
+              radial-gradient(circle at 6px 6px, #4a8fd6 2.6px, transparent 3.2px) 33px 0 / 44px 11px;
+  animation-delay: -1.4s; animation-direction: alternate-reverse;
+}
+/* Opacity only: a glow animated with `filter` repainted the strip on every frame. */
+@keyframes twinkle { from { opacity: 1; } to { opacity: 0.35; } }
+/* A string of the same lights for anywhere else (the Secret Santa page). */
+.lights { position: relative; height: 11px; background: linear-gradient(currentColor, currentColor) 0 2px / 100% 1px no-repeat; }
+.lights::before, .lights::after { content: ""; position: absolute; inset: 0; animation: twinkle 1.4s ease-in-out infinite alternate; }
+.lights::before {
+  background: radial-gradient(circle at 6px 6px, #e23b4e 2.6px, transparent 3.2px) 0 0 / 44px 11px,
+              radial-gradient(circle at 6px 6px, #3fa76a 2.6px, transparent 3.2px) 22px 0 / 44px 11px;
+}
+.lights::after {
+  background: radial-gradient(circle at 6px 6px, #f0b93a 2.6px, transparent 3.2px) 11px 0 / 44px 11px,
+              radial-gradient(circle at 6px 6px, #4a8fd6 2.6px, transparent 3.2px) 33px 0 / 44px 11px;
+  animation-direction: alternate-reverse;
+}
+/* Snow (components/snow.tsx): each flake falls the height of the window and drifts a little. */
+.flake { position: absolute; top: -12px; border-radius: 50%; background: var(--snow, #b4c6d6); animation: flake linear infinite; }
+@keyframes flake { to { transform: translate3d(var(--drift, 20px), calc(100dvh + 24px), 0); } }
+/* The present on the Secret Santa page: a little shake now and then, so it asks to be opened. */
+@keyframes wiggle { 0%, 86%, 100% { transform: rotate(0); } 89% { transform: rotate(-5deg); } 92% { transform: rotate(5deg); } 95% { transform: rotate(-3deg); } 98% { transform: rotate(2deg); } }
+/* ...and what flies out of it. */
+@keyframes burst { from { opacity: 1; transform: translate(0, 0) rotate(0); } to { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(var(--rot)); } }
+@media (prefers-reduced-motion: reduce) {
+  .flake { display: none; }
+  .lights::before, .lights::after, [data-skin="holiday"] .skin-band::before, [data-skin="holiday"] .skin-band::after { animation: none; }
+}
+/* Finals: a library at night. Parchment page, a quiet green for what's selected, and a row of
+   book spines along the top. */
+:root[data-skin="finals"] {
+  --bg: #fbf7ef;
+  --surface: #f3ecdc;
+  --accent-tint: #e1eadc;
+  --line: #e6dcc6;
+  --focus: #3f6b3a;
+}
+.dark[data-skin="finals"] {
+  --bg: #12110d;
+  --surface: #1a1913;
+  --raised: #201f18;
+  --accent-tint: #23301f;
+  --line: #2e2c22;
+}
+[data-skin="finals"] .skin-band {
+  height: 6px;
+  background: repeating-linear-gradient(90deg, #7a2e2e 0 9px, #2f4a6b 9px 15px, #4a6b3a 15px 24px, #a0782e 24px 30px, #5b3f6e 30px 37px);
+}
+/* Snow day: cool and soft, with snow falling past a winter-sky band. */
+:root[data-skin="snow"] {
+  --bg: #f6f9fc;
+  --surface: #edf2f8;
+  --accent-tint: #dfe9f4;
+  --line: #e0e8f1;
+  --focus: #3d6fa8;
+}
+.dark[data-skin="snow"] {
+  --bg: #0d1117;
+  --surface: #131a23;
+  --raised: #18212c;
+  --accent-tint: #1f2c3b;
+  --line: #243142;
+}
+[data-skin="snow"] .skin-band {
+  height: 6px;
+  background: radial-gradient(circle, #fff 1.2px, transparent 1.6px) 0 0 / 9px 6px, #a9c3dc;
+  animation: snowfall 3s linear infinite;
+}
+@keyframes snowfall { to { background-position: 3px 6px; } }
+
+@theme inline {
+  --font-sans: "Geist Variable", -apple-system, "Segoe UI", system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, Menlo, monospace;
+
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-tint: var(--accent-tint);
+  --color-focus: var(--focus);
+  --color-xmas-red: var(--xmas-red);
+  --color-xmas-green: var(--xmas-green);
+  --color-xmas-gold: var(--xmas-gold);
+  --color-good: var(--good);
+  --color-good-tint: var(--good-tint);
+  --color-warn: var(--warn);
+  --color-warn-tint: var(--warn-tint);
+  --color-bad: var(--bad);
+  --color-bad-tint: var(--bad-tint);
+  --color-people: var(--people);
+  --color-people-tint: var(--people-tint);
+  --color-career: var(--career);
+  --color-career-tint: var(--career-tint);
+  --color-course: var(--course);
+  --color-course-tint: var(--course-tint);
+  --color-claude: var(--claude);
+  --color-claude-tint: var(--claude-tint);
+
+  /* shadcn's names, mapped onto ours, so generated components read correctly as-is. */
+  --color-background: var(--bg);
+  --color-foreground: var(--ink);
+  --color-card: var(--raised);
+  --color-card-foreground: var(--ink);
+  --color-popover: var(--raised);
+  --color-popover-foreground: var(--ink);
+  --color-primary: var(--accent);
+  --color-primary-foreground: var(--accent-ink);
+  --color-secondary: var(--surface);
+  --color-secondary-foreground: var(--ink);
+  --color-muted-foreground: var(--muted);
+  --color-border: var(--line);
+  --color-input: var(--line-strong);
+  --color-ring: var(--focus);
+
+  --shadow-card: var(--shadow-card);
+  --shadow-pop: var(--shadow-pop);
+
+  /* Pulse's compact scale: 13px is the working size, 15px the reading size. */
+  --text-xxs: 0.6875rem;
+  --text-xxs--line-height: 1rem;
+  --text-sm: 0.8125rem;
+  --text-sm--line-height: 1.125rem;
+  --text-base: 0.9375rem;
+  --text-base--line-height: 1.375rem;
+}
+
+@layer base {
+  * { border-color: var(--line); }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Tailwind's reset gives buttons the plain arrow; everything you can click gets the hand. */
+  button:not(:disabled), [role='button'], [role='menuitem'], [role='menuitemradio'], [role='menuitemcheckbox'],
+  [role='option'], [role='tab'], select, summary, label:has(> input[type='checkbox']) { cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 6px; }
+  .tnum { font-variant-numeric: tabular-nums; }
+}
+
+/* Motion is for moments: a face arriving, an album lighting up. Transform and opacity only. */
+@keyframes fade-up { from { opacity: 0; transform: translateY(6px); } }
+@keyframes pop { from { opacity: 0; transform: scale(0.4); } }
+@keyframes light { from { opacity: 0.3; filter: grayscale(1); transform: scale(0.8); } }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-6px); } 40% { transform: translateX(5px); } 60% { transform: translateX(-3px); } 80% { transform: translateX(2px); } }
+@keyframes oski-jump { 0% { transform: translateY(0); } 45% { transform: translateY(-22px); } 75% { transform: translateY(0); } 88% { transform: translateY(-4px); } 100% { transform: translateY(0); } }
+@keyframes bump { 40% { transform: scale(1.3); } }
+@keyframes rise { from { opacity: 0; transform: translateY(8px) scale(0.8); } 30% { opacity: 1; transform: translateY(0) scale(1); } to { opacity: 0; transform: translateY(-28px); } }
+@keyframes slide-in { from { opacity: 0; transform: translateX(24px); } }
+@keyframes firework { 0% { transform: scale(.2); opacity: 0; } 15% { opacity: 1; } 70% { transform: scale(1); opacity: .9; } 100% { transform: scale(1.15); opacity: 0; } }
+@keyframes strain { 0%, 100% { transform: scaleX(1); } 50% { transform: scaleX(.975); } }
+@keyframes knot { 0%, 100% { transform: translateX(-50%); } 50% { transform: translateX(calc(-50% - 4px)); } }
+@keyframes glow { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+@keyframes yank { 0% { transform: scaleX(1); } 35% { transform: scaleX(1.06); } 100% { transform: scaleX(1); } }
+@keyframes bob { 50% { transform: translateY(-3px); } }
+@keyframes shine { to { background-position: -250% 0; } }
+@keyframes coin-drop { from { transform: translateY(-160px) rotate(-200deg); opacity: 0; } 20% { opacity: 1; } 80% { transform: translateY(4px) rotate(0); } to { transform: translateY(0); } }
+@keyframes burst { from { opacity: 1; transform: translate(0, 0) scale(1); } to { opacity: 0; transform: translate(var(--x), var(--y)) scale(0.4); } }
+.animate-in { animation: fade-up 0.2s ease-out both; }
+/* Page changes, side panels and overlays: short, transform and opacity only, so they feel
+   smooth without ever making anything wait. */
+@keyframes page-in { from { opacity: 0; transform: translateY(4px); } }
+@keyframes sheet-in { from { opacity: 0.6; transform: translateX(24px); } }
+@keyframes fade { from { opacity: 0; } }
+.page-in { animation: page-in 0.18s ease-out both; }
+.sheet-in { animation: sheet-in 0.22s cubic-bezier(.2,.8,.2,1) both; }
+.fade-in { animation: fade 0.15s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Swipeable chip rows on phones: one line instead of three. */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* Classroom portal additions: California gold for highlights, a playhead colour, and the
+   tracks of the class timeline. */
+@theme inline {
+  --color-gold: var(--cohort-gold);
+  --color-oski: var(--cohort-oski);
+  --color-muted: var(--surface);
+  /* shadcn's "accent" is a hover/selected tint, not the site's ink accent. */
+  --color-accent: var(--accent-tint);
+  --color-accent-foreground: var(--ink);
+}
+.track-bar { position: absolute; top: 0; bottom: 0; border-radius: 3px; }

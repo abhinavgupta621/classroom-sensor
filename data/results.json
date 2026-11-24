@@ -1,0 +1,1355 @@
+{
+ "setting": {
+  "students": 58,
+  "classes": 5,
+  "gallery": 229,
+  "sections_in_gallery": 4
+ },
+ "sessions": [
+  {
+   "date": "2026-09-22",
+   "resolution": "1024,576",
+   "duration_s": 7192.3,
+   "class_start_s": 774.7,
+   "camera_on_students_s": 2404.5,
+   "recognised_3s": 42,
+   "professor_min": 49.5,
+   "student_side_min": 39.4,
+   "name_calls": 10
+  },
+  {
+   "date": "2026-09-24",
+   "resolution": "1024,576",
+   "duration_s": 7191.4,
+   "class_start_s": 1799.0,
+   "camera_on_students_s": 1896.5,
+   "recognised_3s": 41,
+   "professor_min": 51.5,
+   "student_side_min": 22.4,
+   "name_calls": 13
+  },
+  {
+   "date": "2026-09-29",
+   "resolution": "1024,576",
+   "duration_s": 7189.2,
+   "class_start_s": 0,
+   "camera_on_students_s": 1593.8,
+   "recognised_3s": 36,
+   "professor_min": 56.6,
+   "student_side_min": 26.5,
+   "name_calls": 4
+  },
+  {
+   "date": "2026-10-06",
+   "resolution": "1024,576",
+   "duration_s": 7191.3,
+   "class_start_s": 675.2,
+   "camera_on_students_s": 1753.0,
+   "recognised_3s": 33,
+   "professor_min": 33.4,
+   "student_side_min": 56.8,
+   "name_calls": 4
+  },
+  {
+   "date": "2026-10-08",
+   "resolution": "1920,1080",
+   "duration_s": 7181.0,
+   "class_start_s": 765.3,
+   "camera_on_students_s": 757.0,
+   "recognised_3s": 41,
+   "professor_min": 37.4,
+   "student_side_min": 11.2,
+   "name_calls": 3
+  }
+ ],
+ "students": [
+  {
+   "id": "S01",
+   "classes_recognised": 4,
+   "seconds_on_camera": {
+    "2026-09-22": 134,
+    "2026-09-24": 25,
+    "2026-09-29": 55,
+    "2026-10-06": 65,
+    "2026-10-08": 0
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 1,
+   "voiceprint": false
+  },
+  {
+   "id": "S02",
+   "classes_recognised": 5,
+   "seconds_on_camera": {
+    "2026-09-22": 404,
+    "2026-09-24": 118,
+    "2026-09-29": 158,
+    "2026-10-06": 177,
+    "2026-10-08": 211
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S03",
+   "classes_recognised": 1,
+   "seconds_on_camera": {
+    "2026-09-22": 0,
+    "2026-09-24": 0,
+    "2026-09-29": 0,
+    "2026-10-06": 0,
+    "2026-10-08": 4
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 1,
+   "voiceprint": false
+  },
+  {
+   "id": "S04",
+   "classes_recognised": 4,
+   "seconds_on_camera": {
+    "2026-09-22": 342,
+    "2026-09-24": 207,
+    "2026-09-29": 252,
+    "2026-10-06": 477,
+    "2026-10-08": 0
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S05",
+   "classes_recognised": 1,
+   "seconds_on_camera": {
+    "2026-09-22": 0,
+    "2026-09-24": 0,
+    "2026-09-29": 0,
+    "2026-10-06": 0,
+    "2026-10-08": 7
+   },
+   "named_comments": 9,
+   "named_talk_s": 264.5,
+   "times_called": 1,
+   "voiceprint": true
+  },
+  {
+   "id": "S06",
+   "classes_recognised": 4,
+   "seconds_on_camera": {
+    "2026-09-22": 0,
+    "2026-09-24": 376,
+    "2026-09-29": 40,
+    "2026-10-06": 26,
+    "2026-10-08": 83
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S07",
+   "classes_recognised": 4,
+   "seconds_on_camera": {
+    "2026-09-22": 498,
+    "2026-09-24": 117,
+    "2026-09-29": 119,
+    "2026-10-06": 12,
+    "2026-10-08": 0
+   },
+   "named_comments": 3,
+   "named_talk_s": 80.5,
+   "times_called": 2,
+   "voiceprint": true
+  },
+  {
+   "id": "S08",
+   "classes_recognised": 3,
+   "seconds_on_camera": {
+    "2026-09-22": 10,
+    "2026-09-24": 1,
+    "2026-09-29": 0,
+    "2026-10-06": 406,
+    "2026-10-08": 120
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S09",
+   "classes_recognised": 2,
+   "seconds_on_camera": {
+    "2026-09-22": 0,
+    "2026-09-24": 0,
+    "2026-09-29": 4,
+    "2026-10-06": 0,
+    "2026-10-08": 78
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S10",
+   "classes_recognised": 2,
+   "seconds_on_camera": {
+    "2026-09-22": 20,
+    "2026-09-24": 6,
+    "2026-09-29": 0,
+    "2026-10-06": 0,
+    "2026-10-08": 0
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S11",
+   "classes_recognised": 3,
+   "seconds_on_camera": {
+    "2026-09-22": 31,
+    "2026-09-24": 294,
+    "2026-09-29": 0,
+    "2026-10-06": 0,
+    "2026-10-08": 187
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S12",
+   "classes_recognised": 5,
+   "seconds_on_camera": {
+    "2026-09-22": 540,
+    "2026-09-24": 368,
+    "2026-09-29": 252,
+    "2026-10-06": 317,
+    "2026-10-08": 273
+   },
+   "named_comments": 9,
+   "named_talk_s": 107.9,
+   "times_called": 2,
+   "voiceprint": true
+  },
+  {
+   "id": "S13",
+   "classes_recognised": 2,
+   "seconds_on_camera": {
+    "2026-09-22": 0,
+    "2026-09-24": 65,
+    "2026-09-29": 230,
+    "2026-10-06": 0,
+    "2026-10-08": 0
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S14",
+   "classes_recognised": 5,
+   "seconds_on_camera": {
+    "2026-09-22": 200,
+    "2026-09-24": 144,
+    "2026-09-29": 155,
+    "2026-10-06": 73,
+    "2026-10-08": 262
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S15",
+   "classes_recognised": 2,
+   "seconds_on_camera": {
+    "2026-09-22": 229,
+    "2026-09-24": 0,
+    "2026-09-29": 150,
+    "2026-10-06": 0,
+    "2026-10-08": 0
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S16",
+   "classes_recognised": 2,
+   "seconds_on_camera": {
+    "2026-09-22": 0,
+    "2026-09-24": 2,
+    "2026-09-29": 15,
+    "2026-10-06": 2,
+    "2026-10-08": 103
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S17",
+   "classes_recognised": 5,
+   "seconds_on_camera": {
+    "2026-09-22": 202,
+    "2026-09-24": 71,
+    "2026-09-29": 22,
+    "2026-10-06": 213,
+    "2026-10-08": 85
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S18",
+   "classes_recognised": 5,
+   "seconds_on_camera": {
+    "2026-09-22": 399,
+    "2026-09-24": 322,
+    "2026-09-29": 96,
+    "2026-10-06": 12,
+    "2026-10-08": 261
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S19",
+   "classes_recognised": 4,
+   "seconds_on_camera": {
+    "2026-09-22": 7,
+    "2026-09-24": 286,
+    "2026-09-29": 245,
+    "2026-10-06": 0,
+    "2026-10-08": 38
+   },
+   "named_comments": 5,
+   "named_talk_s": 116.8,
+   "times_called": 1,
+   "voiceprint": true
+  },
+  {
+   "id": "S20",
+   "classes_recognised": 5,
+   "seconds_on_camera": {
+    "2026-09-22": 121,
+    "2026-09-24": 213,
+    "2026-09-29": 95,
+    "2026-10-06": 237,
+    "2026-10-08": 238
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S21",
+   "classes_recognised": 3,
+   "seconds_on_camera": {
+    "2026-09-22": 0,
+    "2026-09-24": 37,
+    "2026-09-29": 0,
+    "2026-10-06": 3,
+    "2026-10-08": 44
+   },
+   "named_comments": 3,
+   "named_talk_s": 110.4,
+   "times_called": 1,
+   "voiceprint": true
+  },
+  {
+   "id": "S22",
+   "classes_recognised": 1,
+   "seconds_on_camera": {
+    "2026-09-22": 2,
+    "2026-09-24": 0,
+    "2026-09-29": 0,
+    "2026-10-06": 50,
+    "2026-10-08": 2
+   },
+   "named_comments": 7,
+   "named_talk_s": 189.5,
+   "times_called": 3,
+   "voiceprint": true
+  },
+  {
+   "id": "S23",
+   "classes_recognised": 4,
+   "seconds_on_camera": {
+    "2026-09-22": 100,
+    "2026-09-24": 129,
+    "2026-09-29": 44,
+    "2026-10-06": 0,
+    "2026-10-08": 109
+   },
+   "named_comments": 5,
+   "named_talk_s": 94.3,
+   "times_called": 3,
+   "voiceprint": true
+  },
+  {
+   "id": "S24",
+   "classes_recognised": 5,
+   "seconds_on_camera": {
+    "2026-09-22": 398,
+    "2026-09-24": 378,
+    "2026-09-29": 66,
+    "2026-10-06": 340,
+    "2026-10-08": 171
+   },
+   "named_comments": 19,
+   "named_talk_s": 491.6,
+   "times_called": 2,
+   "voiceprint": true
+  },
+  {
+   "id": "S25",
+   "classes_recognised": 4,
+   "seconds_on_camera": {
+    "2026-09-22": 87,
+    "2026-09-24": 348,
+    "2026-09-29": 0,
+    "2026-10-06": 38,
+    "2026-10-08": 59
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S26",
+   "classes_recognised": 4,
+   "seconds_on_camera": {
+    "2026-09-22": 0,
+    "2026-09-24": 324,
+    "2026-09-29": 400,
+    "2026-10-06": 683,
+    "2026-10-08": 105
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S27",
+   "classes_recognised": 4,
+   "seconds_on_camera": {
+    "2026-09-22": 0,
+    "2026-09-24": 248,
+    "2026-09-29": 23,
+    "2026-10-06": 28,
+    "2026-10-08": 71
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S28",
+   "classes_recognised": 3,
+   "seconds_on_camera": {
+    "2026-09-22": 99,
+    "2026-09-24": 212,
+    "2026-09-29": 0,
+    "2026-10-06": 146,
+    "2026-10-08": 0
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S29",
+   "classes_recognised": 3,
+   "seconds_on_camera": {
+    "2026-09-22": 220,
+    "2026-09-24": 66,
+    "2026-09-29": 0,
+    "2026-10-06": 0,
+    "2026-10-08": 252
+   },
+   "named_comments": 8,
+   "named_talk_s": 142.8,
+   "times_called": 1,
+   "voiceprint": true
+  },
+  {
+   "id": "S30",
+   "classes_recognised": 3,
+   "seconds_on_camera": {
+    "2026-09-22": 0,
+    "2026-09-24": 250,
+    "2026-09-29": 0,
+    "2026-10-06": 480,
+    "2026-10-08": 54
+   },
+   "named_comments": 4,
+   "named_talk_s": 56.8,
+   "times_called": 1,
+   "voiceprint": true
+  },
+  {
+   "id": "S31",
+   "classes_recognised": 5,
+   "seconds_on_camera": {
+    "2026-09-22": 66,
+    "2026-09-24": 138,
+    "2026-09-29": 110,
+    "2026-10-06": 4,
+    "2026-10-08": 53
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S32",
+   "classes_recognised": 5,
+   "seconds_on_camera": {
+    "2026-09-22": 145,
+    "2026-09-24": 197,
+    "2026-09-29": 189,
+    "2026-10-06": 68,
+    "2026-10-08": 168
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S33",
+   "classes_recognised": 5,
+   "seconds_on_camera": {
+    "2026-09-22": 41,
+    "2026-09-24": 74,
+    "2026-09-29": 33,
+    "2026-10-06": 191,
+    "2026-10-08": 10
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S34",
+   "classes_recognised": 0,
+   "seconds_on_camera": {
+    "2026-09-22": 0,
+    "2026-09-24": 0,
+    "2026-09-29": 0,
+    "2026-10-06": 0,
+    "2026-10-08": 0
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 1,
+   "voiceprint": false
+  },
+  {
+   "id": "S35",
+   "classes_recognised": 4,
+   "seconds_on_camera": {
+    "2026-09-22": 156,
+    "2026-09-24": 18,
+    "2026-09-29": 124,
+    "2026-10-06": 561,
+    "2026-10-08": 0
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S36",
+   "classes_recognised": 5,
+   "seconds_on_camera": {
+    "2026-09-22": 369,
+    "2026-09-24": 108,
+    "2026-09-29": 338,
+    "2026-10-06": 128,
+    "2026-10-08": 159
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 1,
+   "voiceprint": false
+  },
+  {
+   "id": "S37",
+   "classes_recognised": 3,
+   "seconds_on_camera": {
+    "2026-09-22": 482,
+    "2026-09-24": 0,
+    "2026-09-29": 95,
+    "2026-10-06": 203,
+    "2026-10-08": 0
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S38",
+   "classes_recognised": 4,
+   "seconds_on_camera": {
+    "2026-09-22": 131,
+    "2026-09-24": 0,
+    "2026-09-29": 143,
+    "2026-10-06": 246,
+    "2026-10-08": 178
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S39",
+   "classes_recognised": 2,
+   "seconds_on_camera": {
+    "2026-09-22": 155,
+    "2026-09-24": 0,
+    "2026-09-29": 0,
+    "2026-10-06": 0,
+    "2026-10-08": 7
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S40",
+   "classes_recognised": 0,
+   "seconds_on_camera": {
+    "2026-09-22": 0,
+    "2026-09-24": 0,
+    "2026-09-29": 0,
+    "2026-10-06": 0,
+    "2026-10-08": 0
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S41",
+   "classes_recognised": 4,
+   "seconds_on_camera": {
+    "2026-09-22": 290,
+    "2026-09-24": 264,
+    "2026-09-29": 84,
+    "2026-10-06": 0,
+    "2026-10-08": 93
+   },
+   "named_comments": 9,
+   "named_talk_s": 367.2,
+   "times_called": 3,
+   "voiceprint": true
+  },
+  {
+   "id": "S42",
+   "classes_recognised": 4,
+   "seconds_on_camera": {
+    "2026-09-22": 281,
+    "2026-09-24": 188,
+    "2026-09-29": 283,
+    "2026-10-06": 0,
+    "2026-10-08": 78
+   },
+   "named_comments": 3,
+   "named_talk_s": 80.3,
+   "times_called": 3,
+   "voiceprint": true
+  },
+  {
+   "id": "S43",
+   "classes_recognised": 3,
+   "seconds_on_camera": {
+    "2026-09-22": 23,
+    "2026-09-24": 50,
+    "2026-09-29": 2,
+    "2026-10-06": 0,
+    "2026-10-08": 4
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S44",
+   "classes_recognised": 4,
+   "seconds_on_camera": {
+    "2026-09-22": 20,
+    "2026-09-24": 29,
+    "2026-09-29": 167,
+    "2026-10-06": 2,
+    "2026-10-08": 257
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S45",
+   "classes_recognised": 3,
+   "seconds_on_camera": {
+    "2026-09-22": 440,
+    "2026-09-24": 201,
+    "2026-09-29": 0,
+    "2026-10-06": 0,
+    "2026-10-08": 55
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S46",
+   "classes_recognised": 4,
+   "seconds_on_camera": {
+    "2026-09-22": 407,
+    "2026-09-24": 262,
+    "2026-09-29": 443,
+    "2026-10-06": 90,
+    "2026-10-08": 0
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S47",
+   "classes_recognised": 2,
+   "seconds_on_camera": {
+    "2026-09-22": 0,
+    "2026-09-24": 0,
+    "2026-09-29": 0,
+    "2026-10-06": 58,
+    "2026-10-08": 5
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S48",
+   "classes_recognised": 3,
+   "seconds_on_camera": {
+    "2026-09-22": 730,
+    "2026-09-24": 161,
+    "2026-09-29": 0,
+    "2026-10-06": 0,
+    "2026-10-08": 81
+   },
+   "named_comments": 6,
+   "named_talk_s": 128.0,
+   "times_called": 3,
+   "voiceprint": true
+  },
+  {
+   "id": "S49",
+   "classes_recognised": 0,
+   "seconds_on_camera": {
+    "2026-09-22": 0,
+    "2026-09-24": 0,
+    "2026-09-29": 0,
+    "2026-10-06": 0,
+    "2026-10-08": 1
+   },
+   "named_comments": 2,
+   "named_talk_s": 70.8,
+   "times_called": 1,
+   "voiceprint": true
+  },
+  {
+   "id": "S50",
+   "classes_recognised": 4,
+   "seconds_on_camera": {
+    "2026-09-22": 202,
+    "2026-09-24": 89,
+    "2026-09-29": 71,
+    "2026-10-06": 0,
+    "2026-10-08": 55
+   },
+   "named_comments": 3,
+   "named_talk_s": 68.8,
+   "times_called": 1,
+   "voiceprint": true
+  },
+  {
+   "id": "S51",
+   "classes_recognised": 3,
+   "seconds_on_camera": {
+    "2026-09-22": 0,
+    "2026-09-24": 75,
+    "2026-09-29": 0,
+    "2026-10-06": 22,
+    "2026-10-08": 172
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S52",
+   "classes_recognised": 3,
+   "seconds_on_camera": {
+    "2026-09-22": 79,
+    "2026-09-24": 2,
+    "2026-09-29": 0,
+    "2026-10-06": 182,
+    "2026-10-08": 168
+   },
+   "named_comments": 7,
+   "named_talk_s": 150.3,
+   "times_called": 1,
+   "voiceprint": true
+  },
+  {
+   "id": "S53",
+   "classes_recognised": 3,
+   "seconds_on_camera": {
+    "2026-09-22": 387,
+    "2026-09-24": 27,
+    "2026-09-29": 151,
+    "2026-10-06": 2,
+    "2026-10-08": 0
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S54",
+   "classes_recognised": 4,
+   "seconds_on_camera": {
+    "2026-09-22": 385,
+    "2026-09-24": 0,
+    "2026-09-29": 265,
+    "2026-10-06": 40,
+    "2026-10-08": 190
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 1,
+   "voiceprint": false
+  },
+  {
+   "id": "S55",
+   "classes_recognised": 5,
+   "seconds_on_camera": {
+    "2026-09-22": 125,
+    "2026-09-24": 52,
+    "2026-09-29": 378,
+    "2026-10-06": 122,
+    "2026-10-08": 68
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S56",
+   "classes_recognised": 1,
+   "seconds_on_camera": {
+    "2026-09-22": 184,
+    "2026-09-24": 0,
+    "2026-09-29": 0,
+    "2026-10-06": 0,
+    "2026-10-08": 0
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S57",
+   "classes_recognised": 4,
+   "seconds_on_camera": {
+    "2026-09-22": 51,
+    "2026-09-24": 153,
+    "2026-09-29": 355,
+    "2026-10-06": 399,
+    "2026-10-08": 0
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  },
+  {
+   "id": "S58",
+   "classes_recognised": 4,
+   "seconds_on_camera": {
+    "2026-09-22": 433,
+    "2026-09-24": 134,
+    "2026-09-29": 77,
+    "2026-10-06": 0,
+    "2026-10-08": 49
+   },
+   "named_comments": 0,
+   "named_talk_s": 0,
+   "times_called": 0,
+   "voiceprint": false
+  }
+ ],
+ "face_identification": {
+  "enrolled": 229,
+  "enrolled_oski": 58,
+  "skipped": {
+   "no_section": 0,
+   "not_one_face": 1
+  },
+  "faces_24px_plus": 5785,
+  "same_seat_same_name_rate_at_0.50": 1.0,
+  "same_seat_pairs_at_0.50": 744,
+  "by_threshold": [
+   {
+    "threshold": 0.4,
+    "faces_considered": 5785,
+    "faces_named": 2579,
+    "share_named": 0.446,
+    "named_outside_section_(certainly_wrong)": 19,
+    "out_of_section_rate": 0.0074,
+    "estimated_wrong_name_rate": 0.0098,
+    "estimated_correct_name_rate": 0.9902,
+    "distinct_oski_students_found": 44,
+    "distinct_wrong_section_people_named": 16,
+    "self_found_times": 56
+   },
+   {
+    "threshold": 0.45,
+    "faces_considered": 5785,
+    "faces_named": 2025,
+    "share_named": 0.35,
+    "named_outside_section_(certainly_wrong)": 3,
+    "out_of_section_rate": 0.0015,
+    "estimated_wrong_name_rate": 0.002,
+    "estimated_correct_name_rate": 0.998,
+    "distinct_oski_students_found": 43,
+    "distinct_wrong_section_people_named": 3,
+    "self_found_times": 50
+   },
+   {
+    "threshold": 0.5,
+    "faces_considered": 5785,
+    "faces_named": 1393,
+    "share_named": 0.241,
+    "named_outside_section_(certainly_wrong)": 0,
+    "out_of_section_rate": 0.0,
+    "estimated_wrong_name_rate": 0.0,
+    "estimated_correct_name_rate": 1.0,
+    "distinct_oski_students_found": 42,
+    "distinct_wrong_section_people_named": 0,
+    "self_found_times": 37
+   },
+   {
+    "threshold": 0.55,
+    "faces_considered": 5785,
+    "faces_named": 765,
+    "share_named": 0.132,
+    "named_outside_section_(certainly_wrong)": 0,
+    "out_of_section_rate": 0.0,
+    "estimated_wrong_name_rate": 0.0,
+    "estimated_correct_name_rate": 1.0,
+    "distinct_oski_students_found": 37,
+    "distinct_wrong_section_people_named": 0,
+    "self_found_times": 19
+   },
+   {
+    "threshold": 0.6,
+    "faces_considered": 5785,
+    "faces_named": 304,
+    "share_named": 0.053,
+    "named_outside_section_(certainly_wrong)": 0,
+    "out_of_section_rate": 0.0,
+    "estimated_wrong_name_rate": 0.0,
+    "estimated_correct_name_rate": 1.0,
+    "distinct_oski_students_found": 27,
+    "distinct_wrong_section_people_named": 0,
+    "self_found_times": 2
+   }
+  ]
+ },
+ "face_verification": {
+  "same_person_pairs": 2733,
+  "different_person_pairs": 19801,
+  "same_person_similarity_median": 0.793,
+  "different_person_similarity_p99": 0.356,
+  "different_person_similarity_max": 0.505,
+  "true_match_rate_by_face_size_at_0.40": {
+   "24-40": [
+    0.991,
+    112
+   ],
+   "40-64": [
+    0.992,
+    2026
+   ],
+   "64+": [
+    0.973,
+    595
+   ]
+  },
+  "by_threshold": [
+   {
+    "threshold": 0.3,
+    "true_match_rate": 0.9949,
+    "false_match_rate_per_pair": 0.03596,
+    "false_match_vs_70_enrolled": 0.923
+   },
+   {
+    "threshold": 0.363,
+    "true_match_rate": 0.992,
+    "false_match_rate_per_pair": 0.00828,
+    "false_match_vs_70_enrolled": 0.4413
+   },
+   {
+    "threshold": 0.4,
+    "true_match_rate": 0.9879,
+    "false_match_rate_per_pair": 0.00278,
+    "false_match_vs_70_enrolled": 0.1769
+   },
+   {
+    "threshold": 0.45,
+    "true_match_rate": 0.9788,
+    "false_match_rate_per_pair": 0.00081,
+    "false_match_vs_70_enrolled": 0.055
+   },
+   {
+    "threshold": 0.5,
+    "true_match_rate": 0.9685,
+    "false_match_rate_per_pair": 0.0001,
+    "false_match_vs_70_enrolled": 0.007
+   }
+  ]
+ },
+ "camera_check": {
+  "frames_sampled": 1440,
+  "sample_every_s": 5.0,
+  "share_of_time_students_on_screen": 0.111,
+  "faces_detected": 2309,
+  "face_size_buckets": {
+   "0-24px": 0,
+   "24-40px": 72,
+   "40-64px": 1317,
+   "64-px": 920
+  },
+  "share_faces_recognisable_40px": 0.969,
+  "share_faces_borderline_24_40px": 0.031,
+  "median_face_px": 57.0,
+  "max_recognisable_in_one_frame": 16,
+  "distinct_people_captured_clearly_est": 140,
+  "distinct_people_seen_3plus_times_est": 65
+ },
+ "audio_check": {
+  "speech_minutes": 48.3,
+  "instructor": {
+   "turns": 117,
+   "minutes": 40.0,
+   "median_loudness_dbfs": -21.7,
+   "median_transcript_confidence": 0.901
+  },
+  "others_3s_plus": {
+   "turns": 25,
+   "minutes": 7.7,
+   "median_loudness_dbfs": -26.7,
+   "median_transcript_confidence": 0.865
+  },
+  "short_turns_under_3s": {
+   "turns": 21,
+   "minutes": 0.6,
+   "median_loudness_dbfs": -25.1,
+   "median_transcript_confidence": 0.713
+  },
+  "voice_groups_among_others_est": 15,
+  "loudness_gap_db": 5.0
+ },
+ "name_cards": {
+  "student_shot_frames_read": 298,
+  "cards_read_total": 309,
+  "cards_in_section": 309,
+  "cards_other_section": 0,
+  "distinct_students_with_readable_card": 5,
+  "card_vs_face": {
+   "agree": 15,
+   "disagree": 7,
+   "face_not_named": 83,
+   "no_face_found_above_card": 204
+  },
+  "students_confirmed_by_both": 4,
+  "students_named_by_face": 43,
+  "students_named_by_card_only": 0,
+  "students_named_by_either": 43,
+  "disagreements": 7
+ },
+ "speaker_cues": {
+  "comments": 9,
+  "speaker_in_view": 8,
+  "median_faces_in_shot": 16.0,
+  "median_named_in_shot": 9.0,
+  "gaze": {
+   "fired": 9,
+   "right": 0,
+   "right_when_speaker_in_view": 0,
+   "fired_when_in_view": 8
+  },
+  "lips": {
+   "fired": 9,
+   "right": 1,
+   "right_when_speaker_in_view": 1,
+   "fired_when_in_view": 8
+  },
+  "centre": {
+   "fired": 9,
+   "right": 0,
+   "right_when_speaker_in_view": 0,
+   "fired_when_in_view": 8
+  },
+  "largest": {
+   "fired": 9,
+   "right": 0,
+   "right_when_speaker_in_view": 0,
+   "fired_when_in_view": 8
+  }
+ },
+ "name_to_voice": {
+  "section": "SectionA",
+  "classes": {
+   "2026-10-08-core-section-a": {
+    "turns": 388,
+    "professor_turns": 179,
+    "student_turns_3s": 64,
+    "student_minutes": 20.6,
+    "names_called": 3,
+    "anchors": 1
+   },
+   "2026-09-22-core-section-a": {
+    "turns": 412,
+    "professor_turns": 204,
+    "student_turns_3s": 145,
+    "student_minutes": 46.9,
+    "names_called": 10,
+    "anchors": 8
+   },
+   "2026-09-24-core-section-a": {
+    "turns": 423,
+    "professor_turns": 210,
+    "student_turns_3s": 126,
+    "student_minutes": 40.7,
+    "names_called": 13,
+    "anchors": 3
+   },
+   "2026-09-29-core-section-a": {
+    "turns": 429,
+    "professor_turns": 214,
+    "student_turns_3s": 117,
+    "student_minutes": 31.8,
+    "names_called": 4,
+    "anchors": 0
+   },
+   "2026-10-06-core-section-a": {
+    "turns": 350,
+    "professor_turns": 95,
+    "student_turns_3s": 175,
+    "student_minutes": 67.8,
+    "names_called": 4,
+    "anchors": 2
+   }
+  },
+  "anchors_total": 14,
+  "students_with_anchor": 10,
+  "students_anchored_in_2plus_classes": 2,
+  "leave_one_class_out": {
+   "tests": 4,
+   "top1_correct": 4,
+   "accepted_at_0.5": 4,
+   "accepted_correct": 4
+  },
+  "coverage": {
+   "2026-10-08-core-section-a": {
+    "student_talk_named_share": 0.11,
+    "students_named_by_voice": 3
+   },
+   "2026-09-22-core-section-a": {
+    "student_talk_named_share": 0.22,
+    "students_named_by_voice": 8
+   },
+   "2026-09-24-core-section-a": {
+    "student_talk_named_share": 0.1,
+    "students_named_by_voice": 9
+   },
+   "2026-09-29-core-section-a": {
+    "student_talk_named_share": 0.07,
+    "students_named_by_voice": 3
+   },
+   "2026-10-06-core-section-a": {
+    "student_talk_named_share": 0.06,
+    "students_named_by_voice": 3
+   }
+  }
+ },
+ "voice_pairs": {
+  "same": 5,
+  "different": 205,
+  "same_median": 0.699,
+  "different_median": 0.091
+ },
+ "rubric_agreement": {
+  "student_labelled_turns": 32,
+  "scores_compared": 128,
+  "identical": 124,
+  "within_one_point": 128,
+  "differences": [
+   {
+    "turn": 5,
+    "criterion": "builds_on_others",
+    "A": 2,
+    "B": 3
+   },
+   {
+    "turn": 28,
+    "criterion": "builds_on_others",
+    "A": 3,
+    "B": 4
+   },
+   {
+    "turn": 53,
+    "criterion": "evidence",
+    "A": 3,
+    "B": 4
+   },
+   {
+    "turn": 55,
+    "criterion": "relevance",
+    "A": 5,
+    "B": 4
+   }
+  ],
+  "both_passes_flagged_not_a_student": 12,
+  "flags_agreed": true,
+  "substantive_student_contributions_(any_score>=2)": 19,
+  "note": "Same model and prompt twice: measures consistency, not whether scores match the professor's judgement."
+ },
+ "presence_single_class": {
+  "section": "SectionA",
+  "enrolled_in_section": 58,
+  "faces_indexed": 11562,
+  "seconds_with_any_face": 4340,
+  "seconds_with_students_on_screen": 806,
+  "named_from_single_frames": 43,
+  "named_from_single_frames_wrong_section": 1,
+  "named_after_grouping_faces": 43,
+  "named_after_grouping_wrong_section": 1,
+  "added_by_grouping": 0,
+  "groups_with_conflicting_names": 0,
+  "seen_but_not_named_people_est": 86,
+  "instructor_group_found": true,
+  "never_seen_upper_bound": -71,
+  "never_seen_if_no_unnamed": 15
+ },
+ "across_sessions": {
+  "section": "SectionA",
+  "sessions": {
+   "2026-10-08-core-section-a": {
+    "resolution": "1920,1080",
+    "faces_indexed": 11562,
+    "median_face_px": 57.0,
+    "seconds_students_on_screen": 806,
+    "students_named": 43,
+    "wrong_section_people": 1,
+    "wrong_section_seconds": 1
+   },
+   "2026-09-22-core-section-a": {
+    "resolution": "1024,576",
+    "faces_indexed": 25952,
+    "median_face_px": 29.0,
+    "seconds_students_on_screen": 2399,
+    "students_named": 43,
+    "wrong_section_people": 1,
+    "wrong_section_seconds": 2
+   },
+   "2026-09-24-core-section-a": {
+    "resolution": "1024,576",
+    "faces_indexed": 21476,
+    "median_face_px": 30.0,
+    "seconds_students_on_screen": 1997,
+    "students_named": 44,
+    "wrong_section_people": 4,
+    "wrong_section_seconds": 6
+   },
+   "2026-09-29-core-section-a": {
+    "resolution": "1024,576",
+    "faces_indexed": 17677,
+    "median_face_px": 33.0,
+    "seconds_students_on_screen": 1650,
+    "students_named": 37,
+    "wrong_section_people": 4,
+    "wrong_section_seconds": 17
+   },
+   "2026-10-06-core-section-a": {
+    "resolution": "1024,576",
+    "faces_indexed": 21100,
+    "median_face_px": 33.0,
+    "seconds_students_on_screen": 1808,
+    "students_named": 36,
+    "wrong_section_people": 0,
+    "wrong_section_seconds": 0
+   }
+  },
+  "enrolled": 58,
+  "seen_in_at_least_one": 56,
+  "seen_in_every_session": 13,
+  "never_seen": 2,
+  "students_by_sessions_seen": {
+   "0": 2,
+   "1": 4,
+   "2": 6,
+   "3": 10,
+   "4": 23,
+   "5": 13
+  },
+  "median_seconds_on_camera_when_seen": 125.0
+ }
+}
