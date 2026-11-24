@@ -26,11 +26,11 @@ export default function Sessions({ d, openStudent, reload }: { d: Portal; openSt
   const camSecs = s.camera.reduce((a, [x, y]) => a + y - x, 0);
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[13rem_1fr]">
+    <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[13rem_minmax(0,1fr)]">
       {/* Classes */}
       <nav className="space-y-1 lg:sticky lg:top-20 lg:self-start">
         <div className="px-2 pb-1 text-xxs font-semibold uppercase tracking-wide text-muted-foreground">Classes</div>
-        <div className="flex gap-1 overflow-x-auto lg:flex-col">
+        <div className="-mx-1 flex gap-1 overflow-x-auto px-1 pb-1 lg:flex-col">
           {d.sessions.map((x) => (
             <button key={x.date} onClick={() => setDate(x.date)}
               className={cn('shrink-0 rounded-lg px-3 py-2 text-left transition-colors hover:bg-surface', x.date === s.date && 'bg-accent-tint')}>
@@ -66,7 +66,7 @@ export default function Sessions({ d, openStudent, reload }: { d: Portal; openSt
           </div>
         </Card>
 
-        <div className="grid gap-6 xl:grid-cols-[1fr_22rem]">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-6 xl:grid-cols-[minmax(0,1fr)_22rem]">
           <TranscriptPanel d={d} date={s.date} openStudent={openStudent} reload={reload} />
           <div className="space-y-6">
             <Card className="space-y-3">
@@ -145,12 +145,13 @@ function TranscriptPanel({ d, date, openStudent, reload }: { d: Portal; date: st
       <div ref={list} className="relative max-h-[38rem] overflow-y-auto border-t border-line">
         {rows.map((r, i) => (
           <div key={i} ref={(el) => { refs.current[i] = el; }}
-            className={cn('group grid grid-cols-[1.75rem_3.75rem_8rem_1fr] items-start gap-2.5 border-b border-line/60 px-4 py-2 text-sm transition-colors',
+            className={cn('group grid items-start gap-x-2.5 gap-y-1 border-b border-line/60 px-3 py-2 text-sm transition-colors sm:px-4',
+              PUBLIC ? 'grid-cols-[3.75rem_minmax(0,1fr)] sm:grid-cols-[3.75rem_8rem_minmax(0,1fr)]' : 'grid-cols-[1.75rem_3.75rem_minmax(0,1fr)] sm:grid-cols-[1.75rem_3.75rem_8rem_minmax(0,1fr)]',
               r.role === 'preclass' && 'italic text-muted-foreground', i === live && 'bg-accent-tint')}>
-            {r.role !== 'preclass' ? <PlayButton clip={{ date, start: r.start, end: r.end, title: label(r), sub: r.text.slice(0, 60) }} /> : <span />}
+            {!PUBLIC && (r.role !== 'preclass' ? <div><PlayButton clip={{ date, start: r.start, end: r.end, title: label(r), sub: r.text.slice(0, 60) }} /></div> : <span />)}
             <button className="pt-1 text-left font-mono text-xxs text-muted-foreground hover:text-foreground" title="Listen from here"
               onClick={() => p.play({ date, start: r.start, title: `Whole class, ${day(date)}`, sub: 'following along', mode: 'class' })}>{r.at}</button>
-            <div className="space-y-1 pt-0.5">
+            <div className="min-w-0 space-y-1 pt-0.5">
               {r.speaker ? (
                 <button className="flex items-center gap-1.5 text-left text-xs font-medium hover:underline" onClick={() => byName[r.speaker!] && openStudent(byName[r.speaker!])}>
                   <span className="inline-block size-2 shrink-0 rounded-full" style={{ background: voiceColour(r.speaker) }} />{r.speaker}
@@ -163,7 +164,7 @@ function TranscriptPanel({ d, date, openStudent, reload }: { d: Portal; date: st
                 </div>
               )}
             </div>
-            <p className="pt-0.5 leading-relaxed">{r.text}</p>
+            <p className={cn('col-span-2 pt-0.5 leading-relaxed sm:col-span-1 sm:col-start-auto', PUBLIC ? 'col-start-1' : 'col-start-2')}>{r.text}</p>
           </div>
         ))}
         {rows.length === 0 && <div className="p-6 text-sm text-muted-foreground">Nothing matches.</div>}

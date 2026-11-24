@@ -23,12 +23,12 @@ export default function Timeline({ s, rows, roster, onStudent }: { s: Session; r
   const ticks = Array.from({ length: Math.floor(D / 900) + 1 }, (_, i) => i * 900);
   const playing = p.clip?.date === s.date;
 
-  // The bars start after the 7.5rem label column and its 0.75rem gap.
+  // Time under the pointer, measured against the first bar track (the label column is narrower on phones).
   const at = (e: React.MouseEvent) => {
-    const r = box.current!.getBoundingClientRect();
-    const off = 8.25 * parseFloat(getComputedStyle(document.documentElement).fontSize);
-    return Math.max(0, Math.min(D, ((e.clientX - r.left - off) / (r.width - off)) * D));
+    const r = box.current!.querySelector('[data-bar]')!.getBoundingClientRect();
+    return Math.max(0, Math.min(D, ((e.clientX - r.left) / r.width) * D));
   };
+  const show = (e: React.MouseEvent) => { const t = at(e); setHover({ x: e.clientX - box.current!.getBoundingClientRect().left, t, label: describe(t) }); };
   const describe = (t: number) => {
     const row = rows.find((x) => t >= x.start && t <= x.end && x.role !== 'preclass');
     const call = s.calls.find((c) => Math.abs(c.t - t) < D / 300);
@@ -38,18 +38,18 @@ export default function Timeline({ s, rows, roster, onStudent }: { s: Session; r
   };
 
   const Track = ({ label, children, h = 'h-5' }: { label: string; children: React.ReactNode; h?: string }) => (
-    <div className="grid grid-cols-[7.5rem_1fr] items-center gap-3">
+    <div className="grid grid-cols-[var(--lab)_minmax(0,1fr)] items-center gap-2 sm:gap-3">
       <div className="truncate text-right text-xxs font-medium text-muted-foreground">{label}</div>
-      <div className={cn('relative rounded-[4px] bg-surface', h)}>{children}</div>
+      <div data-bar className={cn('relative rounded-[4px] bg-surface', h)}>{children}</div>
     </div>
   );
 
   return (
-    <div className="space-y-1.5 select-none">
+    <div className="space-y-1.5 select-none [--lab:4.25rem] sm:[--lab:7.5rem]">
       <div ref={box} className="relative cursor-pointer space-y-1.5"
-        onMouseMove={(e) => { const t = at(e); setHover({ x: e.clientX - box.current!.getBoundingClientRect().left, t, label: describe(t) }); }}
+        onMouseMove={show}
         onMouseLeave={() => setHover(null)}
-        onClick={(e) => p.play({ date: s.date, start: at(e), title: 'Whole class', sub: 'from the timeline', mode: 'class' })}>
+        onClick={(e) => { show(e); p.play({ date: s.date, start: at(e), title: 'Whole class', sub: 'from the timeline', mode: 'class' }); }}>
         {/* Not part of the click target: the label column */}
         <Track label="Camera on class">
           {s.class_start > 0 && <div className="track-bar bg-line/60" style={{ left: 0, width: pct(s.class_start) }} />}
@@ -75,12 +75,12 @@ export default function Timeline({ s, rows, roster, onStudent }: { s: Session; r
           <>
             <div className="pointer-events-none absolute inset-y-0 w-px bg-focus/60" style={{ left: hover.x }} />
             <div className="pointer-events-none absolute -top-7 z-10 -translate-x-1/2 whitespace-nowrap rounded-md border border-line bg-raised px-2 py-0.5 text-xxs shadow-[var(--shadow-pop)]"
-              style={{ left: Math.max(60, hover.x) }}>{clockS(hover.t)} · {hover.label}</div>
+              style={{ left: Math.min(Math.max(60, hover.x), (box.current?.clientWidth ?? 9999) - 60) }}>{clockS(hover.t)} · {hover.label}</div>
           </>
         )}
-        {playing && <div className="pointer-events-none absolute inset-y-0 w-0.5 rounded bg-focus" style={{ left: `calc(7.5rem + 0.75rem + (100% - 8.25rem) * ${p.time / D})` }} />}
+        {playing && <div className="pointer-events-none absolute inset-y-0 w-0.5 rounded bg-focus" style={{ left: `calc(var(--lab) + 0.75rem + (100% - var(--lab) - 0.75rem) * ${p.time / D})` }} />}
       </div>
-      <div className="grid grid-cols-[7.5rem_1fr] gap-3">
+      <div className="grid grid-cols-[var(--lab)_minmax(0,1fr)] gap-2 sm:gap-3">
         <span />
         <div className="relative h-4 text-xxs text-muted-foreground">
           {ticks.map((t) => <span key={t} className="absolute -translate-x-1/2 tabular-nums" style={{ left: pct(t) }}>{clock(t)}</span>)}

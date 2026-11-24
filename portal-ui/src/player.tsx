@@ -61,7 +61,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       <audio ref={audio} preload="none" />
       {clip && (
         <div className="fixed inset-x-0 bottom-0 z-40 border-t bg-background/95 backdrop-blur">
-          <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-2.5">
+          <div className="mx-auto flex max-w-7xl items-center gap-2 px-3 py-2.5 sm:gap-3 sm:px-4">
             <Button size="icon" className="size-10 shrink-0 rounded-full" onClick={toggle} aria-label={playing ? 'Pause' : 'Play'}>
               {playing ? <Pause /> : <Play className="translate-x-px" />}
             </Button>
@@ -72,10 +72,10 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
                 onValueChange={([v]) => { const a = audio.current!; a.currentTime = span[0] + (v / 100) * (span[1] - span[0]); }} />}
             </div>
             <Tooltip><TooltipTrigger asChild>
-              <Button variant="ghost" size="sm" onClick={() => setRate(rate === 1 ? 1.5 : rate === 1.5 ? 2 : 1)} className="tabular-nums"><Gauge />{rate}×</Button>
+              <Button variant="ghost" size="sm" onClick={() => setRate(rate === 1 ? 1.5 : rate === 1.5 ? 2 : 1)} className="tabular-nums" aria-label="Playback speed"><Gauge className="hidden sm:block" />{rate}×</Button>
             </TooltipTrigger><TooltipContent>Playback speed</TooltipContent></Tooltip>
             {clip.end != null && (
-              <Button variant="outline" size="sm" onClick={() => { audio.current?.pause(); setVideo(true); }}><Video /> Watch</Button>
+              <Button variant="outline" size="sm" onClick={() => { audio.current?.pause(); setVideo(true); }}><Video /><span className="hidden sm:inline">Watch</span></Button>
             )}
             <Button variant="ghost" size="icon" onClick={() => { audio.current?.pause(); setClip(null); }} aria-label="Close player"><X /></Button>
           </div>

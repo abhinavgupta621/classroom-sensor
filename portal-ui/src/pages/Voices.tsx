@@ -1,3 +1,4 @@
+import { HOSTED } from '../hosted';
 import { useState } from 'react';
 import { AudioLines, Fingerprint, Hand, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -38,8 +39,8 @@ export default function Voices({ d, openStudent, reload }: { d: Portal; openStud
 
       {tab === 'unknown' && (
         <>
-          <Heading title="" desc="Student-side audio nobody is named for yet, grouped by how alike it sounds, biggest first. Play a clip or two, then say who it is. Your answer covers every clip in the group, across all classes." />
-          <div className="grid gap-4 lg:grid-cols-2">
+          <Heading title="" desc={HOSTED ? 'Student-side audio nobody is named for yet, grouped by how alike it sounds, biggest first. Naming a group happens in the local portal and covers every clip in it, across all classes.' : 'Student-side audio nobody is named for yet, grouped by how alike it sounds, biggest first. Play a clip or two, then say who it is. Your answer covers every clip in the group, across all classes.'} />
+          <div className="grid grid-cols-[minmax(0,1fr)] gap-4 lg:grid-cols-[repeat(2,minmax(0,1fr))]">
             {v.unknown.map((g, gi) => {
               const sug = g.suggestion ? byName[g.suggestion.student] : null;
               return (
@@ -76,7 +77,7 @@ export default function Voices({ d, openStudent, reload }: { d: Portal; openStud
       )}
 
       {tab === 'learned' && (
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-3 sm:grid-cols-[repeat(2,minmax(0,1fr))] lg:grid-cols-[repeat(3,minmax(0,1fr))]">
           {v.learned.map((l) => {
             const s = byName[l.student];
             return (

@@ -41,7 +41,7 @@ export default function Method({ d }: { d: Portal }) {
 
       <section className="space-y-3">
         <Heading title="Research questions" />
-        <div className="grid gap-3 md:grid-cols-2">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-3 md:grid-cols-[repeat(2,minmax(0,1fr))]">
           {QUESTIONS.map((x) => (
             <Card key={x.q} className="space-y-1.5">
               <div className="flex items-start justify-between gap-3"><div className="font-medium">{x.q}</div><VerdictBadge v={x.v} /></div>
@@ -54,7 +54,7 @@ export default function Method({ d }: { d: Portal }) {
       <section className="space-y-3">
         <Heading title="Pipeline" desc="Per 2-hour class, one Mac, nothing else running." />
         <Card className="p-0">
-          <table className="w-full text-sm">
+          <div className="-mx-1 overflow-x-auto px-1"><table className="w-full min-w-[34rem] text-sm">
             <tbody>
               {timings.map((t) => (
                 <tr key={t.step} className="border-b border-line/60 last:border-0">
@@ -64,14 +64,14 @@ export default function Method({ d }: { d: Portal }) {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </table></div>
         </Card>
       </section>
 
       <section className="space-y-3">
         <Heading title="Results" desc="Wrong face names are counted by matching against all four the core course sections: a match to another section is certainly wrong." />
         <Card className="p-0">
-          <table className="w-full text-sm">
+          <div className="-mx-1 overflow-x-auto px-1"><table className="w-full min-w-[34rem] text-sm">
             <thead className="border-b border-line bg-surface/60 text-left text-xxs text-muted-foreground">
               <tr><th className="py-2 pl-4 font-semibold">Area</th><th className="px-3 font-semibold">Measure</th><th className="px-3 font-semibold">Result</th><th className="px-3 font-semibold">Basis</th><th className="pr-4" /></tr>
             </thead>
@@ -86,11 +86,11 @@ export default function Method({ d }: { d: Portal }) {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </table></div>
         </Card>
       </section>
 
-      <section className="grid gap-6 lg:grid-cols-2">
+      <section className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[repeat(2,minmax(0,1fr))]">
         <div className="space-y-3">
           <Heading title="Data issues found" />
           <Card className="space-y-3">{ISSUES.map(([h, t]) => <div key={h}><div className="text-sm font-medium">{h}</div><p className="text-sm text-muted-foreground">{t}</p></div>)}</Card>
@@ -103,7 +103,7 @@ export default function Method({ d }: { d: Portal }) {
 
       <section className="space-y-3">
         <Heading title="What’s possible" />
-        <div className="grid gap-3 md:grid-cols-2">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-3 md:grid-cols-[repeat(2,minmax(0,1fr))]">
           {(['ready', 'partly', 'no', 'never'] as const).map((v) => (
             <Card key={v} className="space-y-2.5">
               <VerdictBadge v={v} />
@@ -116,13 +116,13 @@ export default function Method({ d }: { d: Portal }) {
       <section className="space-y-3">
         <Heading title="What it would take" desc="Cheapest first; the first three need no new hardware." />
         <Card className="p-0">
-          <table className="w-full text-sm"><tbody>
+          <div className="-mx-1 overflow-x-auto px-1"><table className="w-full min-w-[34rem] text-sm"><tbody>
             {needs.map((n) => (
               <tr key={n.need} className="border-b border-line/60 last:border-0 align-top">
                 <td className="py-2 pl-4 pr-3 font-medium">{n.need}</td><td className="px-3 py-2">{n.fixes}</td><td className="py-2 pl-3 pr-4 text-muted-foreground">{n.cost}</td>
               </tr>
             ))}
-          </tbody></table>
+          </tbody></table></div>
         </Card>
       </section>
 

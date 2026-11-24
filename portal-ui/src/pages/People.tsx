@@ -82,7 +82,7 @@ export default function People({ d, openStudent }: { d: Portal; openStudent: (s:
           <table className="w-full text-sm">
             <thead className="border-y border-line bg-surface/60">
               <tr className="text-left">
-                <Th k="name" className="pl-4">Student</Th>
+                <Th k="name" className="sticky left-0 z-10 bg-surface pl-4">Student</Th>
                 {dates.map((x) => <th key={x} className="px-2 py-2 text-center text-xxs font-semibold text-muted-foreground">{day(x).replace(/^\w+, /, '')}</th>)}
                 <Th k="classes" className="text-right">Classes</Th>
                 <Th k="camera" className="text-right">On camera</Th>
@@ -97,8 +97,8 @@ export default function People({ d, openStudent }: { d: Portal; openStudent: (s:
                 const c = longest.get(s.id);
                 return (
                   <tr key={s.id} className="cursor-pointer border-b border-line/60 transition-colors hover:bg-surface/70" onClick={() => openStudent(s)}>
-                    <td className="py-1.5 pl-4 pr-2">
-                      <div className="flex items-center gap-2.5"><Face s={s} />
+                    <td className="sticky left-0 z-10 bg-raised py-1.5 pl-4 pr-2">
+                      <div className="flex max-w-[10.5rem] items-center gap-2.5 sm:max-w-none"><Face s={s} />
                         <div className="min-w-0"><div className="truncate font-medium">{s.name}</div>{s.team && <div className="text-xxs text-muted-foreground">Team {s.team}</div>}</div>
                       </div>
                     </td>
