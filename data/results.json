@@ -1228,7 +1228,85 @@
     "student_talk_named_share": 0.06,
     "students_named_by_voice": 3
    }
-  }
+  },
+  "face_check": true
+ },
+ "name_to_voice_without_face_check": {
+  "section": "SectionA",
+  "classes": {
+   "2026-10-08-core-section-a": {
+    "turns": 388,
+    "professor_turns": 179,
+    "student_turns_3s": 64,
+    "student_minutes": 20.6,
+    "names_called": 3,
+    "anchors": 1
+   },
+   "2026-09-22-core-section-a": {
+    "turns": 412,
+    "professor_turns": 204,
+    "student_turns_3s": 145,
+    "student_minutes": 46.9,
+    "names_called": 10,
+    "anchors": 9
+   },
+   "2026-09-24-core-section-a": {
+    "turns": 423,
+    "professor_turns": 210,
+    "student_turns_3s": 126,
+    "student_minutes": 40.7,
+    "names_called": 13,
+    "anchors": 5
+   },
+   "2026-09-29-core-section-a": {
+    "turns": 429,
+    "professor_turns": 214,
+    "student_turns_3s": 117,
+    "student_minutes": 31.8,
+    "names_called": 4,
+    "anchors": 2
+   },
+   "2026-10-06-core-section-a": {
+    "turns": 350,
+    "professor_turns": 95,
+    "student_turns_3s": 175,
+    "student_minutes": 67.8,
+    "names_called": 4,
+    "anchors": 4
+   }
+  },
+  "anchors_total": 21,
+  "students_with_anchor": 16,
+  "students_anchored_in_2plus_classes": 3,
+  "leave_one_class_out": {
+   "tests": 6,
+   "top1_correct": 6,
+   "accepted_at_0.5": 6,
+   "accepted_correct": 6
+  },
+  "coverage": {
+   "2026-10-08-core-section-a": {
+    "student_talk_named_share": 0.16,
+    "students_named_by_voice": 5
+   },
+   "2026-09-22-core-section-a": {
+    "student_talk_named_share": 0.3,
+    "students_named_by_voice": 11
+   },
+   "2026-09-24-core-section-a": {
+    "student_talk_named_share": 0.21,
+    "students_named_by_voice": 14
+   },
+   "2026-09-29-core-section-a": {
+    "student_talk_named_share": 0.19,
+    "students_named_by_voice": 8
+   },
+   "2026-10-06-core-section-a": {
+    "student_talk_named_share": 0.14,
+    "students_named_by_voice": 7
+   }
+  },
+  "face_check": false
  },
  "voice_pairs": {
   "same": 5,

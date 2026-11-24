@@ -310,7 +310,10 @@ res = {
                  for r in sorted(roster, key=lambda r: anon[r["name"]])],
     "face_identification": ei, "face_verification": fp, "camera_check": {k: v for k, v in load(R / "check_camera.json")["camera"].items() if k != "timeline"},
     "audio_check": {k: v for k, v in load(R / "check_audio.json")["audio"].items() if k != "turn_timeline"},
-    "name_cards": load(S8 / "name_cards.json"), "speaker_cues": sc, "name_to_voice": load(S8 / "name_to_voice.json"),
+    "name_cards": load(S8 / "name_cards.json"), "speaker_cues": sc,
+    # Name-call voice anchoring under both rules (per-anchor and per-test rows: voice_anchors.csv, voice_heldout_tests.csv).
+    "name_to_voice": {k: v for k, v in load(S8 / "name_to_voice.json").items() if k not in ("anchors", "tests_detail")},
+    "name_to_voice_without_face_check": {k: v for k, v in load(S8 / "name_to_voice_noface.json").items() if k not in ("anchors", "tests_detail")},
     "voice_pairs": {"same": len(same), "different": len(diff), "same_median": round(float(np.median(same)), 3) if same else None,
                     "different_median": round(float(np.median(diff)), 3) if diff else None},
     "rubric_agreement": agree, "presence_single_class": load(S8 / "presence.json"),

@@ -5,8 +5,8 @@ import type { Portal } from '../types';
 
 const QUESTIONS: { q: string; a: string; v: 'ready' | 'partly' | 'no' }[] = [
   { q: 'Can existing recordings tell us who attended?', a: 'Who was there, yes: 33–42 of 58 named per class with ~2% wrong at 576p, 0 wrong at 1080p. Who was absent, not yet: the camera doesn’t look at everyone every class and we have no ground truth.', v: 'partly' },
-  { q: 'Can we tell who spoke?', a: 'When the professor calls a name, yes, and that seeds voiceprints that named the right student in 4 of 4 held-out classes. From video alone, no: among ~16 faces no visual cue picked the speaker.', v: 'partly' },
-  { q: 'Can we measure contribution quality?', a: 'A rubric applied by Claude is consistent (124 of 128 identical across runs). Whether it agrees with the professor is untested.', v: 'partly' },
+  { q: 'Can we tell who spoke?', a: 'When the professor calls a name, yes, and that seeds voiceprints that named the right student in every held-out test (4 of 4 with a face check, 6 of 6 without). From video alone, no: among ~16 faces no visual cue picked the speaker.', v: 'partly' },
+  { q: 'Can we measure contribution quality?', a: 'A rubric applied by Claude is consistent (124 of 128 identical across two repeated runs). Whether it agrees with the professor is untested.', v: 'partly' },
   { q: 'Can it run cheaply and quickly?', a: 'Yes: attendance in ~1 minute and a transcript in ~7 minutes per 2-hour class on one Mac; ~$0.10 a class on a GPU server (estimate).', v: 'ready' },
 ];
 

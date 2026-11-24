@@ -1,0 +1,19 @@
+class,step,seconds,detail,source
+2026-09-22,"find camera shots (160x90, 4 fps)",27.4,"344 shots, 28800 frames",shots.json
+2026-09-22,"transcribe 2 h (whisper-large-v3-turbo, mlx, Mac GPU)",387.4,"119.9 min audio, 18.6x real time, 19 section first names",timing_mlx.json
+2026-09-22,one-minute attendance: find shots,26.0,,fast_attendance.json
+2026-09-22,one-minute attendance: pick class shots,8.5,,fast_attendance.json
+2026-09-22,one-minute attendance: match faces,9.7,,fast_attendance.json
+2026-09-22,one-minute attendance: total,44.2,34 of 43 named by the full scan; 1 certain errors,fast_attendance.json
+2026-09-24,"find camera shots (160x90, 4 fps)",29.2,"374 shots, 28800 frames",shots.json
+2026-09-24,"transcribe 2 h (whisper-large-v3-turbo, mlx, Mac GPU)",434.3,"119.9 min audio, 16.6x real time, 22 section first names",timing_mlx.json
+2026-09-29,"find camera shots (160x90, 4 fps)",36.1,"372 shots, 28796 frames",shots.json
+2026-09-29,"transcribe 2 h (whisper-large-v3-turbo, mlx, Mac GPU)",401.1,"119.9 min audio, 17.9x real time, 13 section first names",timing_mlx.json
+2026-10-06,"find camera shots (160x90, 4 fps)",43.6,"435 shots, 28797 frames",shots.json
+2026-10-06,"transcribe 2 h (whisper-large-v3-turbo, mlx, Mac GPU)",481.0,"119.9 min audio, 15.0x real time, 14 section first names",timing_mlx.json
+2026-10-08,"find camera shots (160x90, 4 fps)",42.6,"464 shots, 28799 frames",shots.json
+2026-10-08,"transcribe 2 h (whisper-large-v3-turbo, mlx, Mac GPU)",748.0,"119.9 min audio, 9.6x real time, 9 section first names",timing_mlx.json
+2026-10-08,one-minute attendance: find shots,35.2,,fast_attendance.json
+2026-10-08,one-minute attendance: pick class shots,15.3,,fast_attendance.json
+2026-10-08,one-minute attendance: match faces,10.0,,fast_attendance.json
+2026-10-08,one-minute attendance: total,60.5,37 of 43 named by the full scan; 0 certain errors,fast_attendance.json

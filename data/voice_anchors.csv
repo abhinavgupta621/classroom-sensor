@@ -1,0 +1,36 @@
+rule,class,reply_start_s,student
+face check (evaluation),2026-10-08,1815.08,S30
+face check (evaluation),2026-09-22,1536.42,S24
+face check (evaluation),2026-09-22,2107.18,S07
+face check (evaluation),2026-09-22,2212.72,S19
+face check (evaluation),2026-09-22,2315.38,S29
+face check (evaluation),2026-09-22,3670.98,S48
+face check (evaluation),2026-09-22,3852.54,S07
+face check (evaluation),2026-09-22,6922.3,S50
+face check (evaluation),2026-09-22,7182.16,S12
+face check (evaluation),2026-09-24,2800.4,S42
+face check (evaluation),2026-09-24,5247.62,S42
+face check (evaluation),2026-09-24,5699.32,S48
+face check (evaluation),2026-10-06,1841.78,S24
+face check (evaluation),2026-10-06,3395.46,S52
+no face check (portal),2026-10-08,1815.08,S30
+no face check (portal),2026-09-22,1536.42,S24
+no face check (portal),2026-09-22,2107.18,S07
+no face check (portal),2026-09-22,2212.72,S19
+no face check (portal),2026-09-22,2315.38,S29
+no face check (portal),2026-09-22,3670.98,S48
+no face check (portal),2026-09-22,3852.54,S07
+no face check (portal),2026-09-22,5206.84,S21
+no face check (portal),2026-09-22,6922.3,S50
+no face check (portal),2026-09-22,7182.16,S12
+no face check (portal),2026-09-24,2800.4,S42
+no face check (portal),2026-09-24,4454.12,S23
+no face check (portal),2026-09-24,5247.62,S42
+no face check (portal),2026-09-24,5496.66,S49
+no face check (portal),2026-09-24,5699.32,S48
+no face check (portal),2026-09-29,4582.62,S05
+no face check (portal),2026-09-29,5979.58,S41
+no face check (portal),2026-10-06,1612.58,S22
+no face check (portal),2026-10-06,1841.78,S24
+no face check (portal),2026-10-06,3395.46,S52
+no face check (portal),2026-10-06,5144.78,S41

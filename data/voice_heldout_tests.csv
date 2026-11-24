@@ -1,0 +1,11 @@
+rule,held_out_class,student,print_said,correct,similarity,lead_over_next,accepted_at_0.50_with_0.05_lead,prints_from_other_classes
+face check (evaluation),2026-09-22,S24,S24,True,0.699,0.515,True,5
+face check (evaluation),2026-09-22,S48,S48,True,0.782,0.592,True,5
+face check (evaluation),2026-09-24,S48,S48,True,0.782,0.468,True,9
+face check (evaluation),2026-10-06,S24,S24,True,0.699,0.487,True,9
+no face check (portal),2026-09-22,S24,S24,True,0.699,0.4,True,10
+no face check (portal),2026-09-22,S48,S48,True,0.782,0.591,True,10
+no face check (portal),2026-09-24,S48,S48,True,0.782,0.468,True,13
+no face check (portal),2026-09-29,S41,S41,True,0.714,0.403,True,15
+no face check (portal),2026-10-06,S24,S24,True,0.699,0.439,True,14
+no face check (portal),2026-10-06,S41,S41,True,0.714,0.496,True,14

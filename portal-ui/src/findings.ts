@@ -33,10 +33,10 @@ export const accuracy: { area: string; metric: string; result: string; basis: st
   { area: 'Transcript', metric: 'Professor speech clean', result: '~95%', basis: 'Claude review of the transcript', verdict: 'ready' },
   { area: 'Transcript', metric: 'Called names spelled right', result: '4 → 9–10 of 10', basis: 'Class list as hints', verdict: 'ready' },
   { area: 'Voices', metric: 'Similarity, same vs different student', result: '0.70 vs 0.09', basis: 'Medians over 210 pairs of name-call-labelled comments', verdict: 'ready' },
-  { area: 'Voices', metric: 'Other classes, right student', result: '4 of 4', basis: 'Held-out classes; name ends the sentence and the face is on camera', verdict: 'partly' },
-  { area: 'Voices', metric: 'Student talk named by voice so far', result: '6–22% per class', basis: '16 voiceprints after 5 classes; grows', verdict: 'partly' },
+  { area: 'Voices', metric: 'Other classes, right student', result: '4 of 4 · 6 of 6', basis: 'Held-out tests, with and without the face check', verdict: 'partly' },
+  { area: 'Voices', metric: 'Student talk named by voice so far', result: '14–30% per class', basis: 'Portal rule, 16 voiceprints after 5 classes; grows', verdict: 'partly' },
   { area: 'Voices', metric: 'Professor vs student, mislabelled turns', result: '12 of 32 → ~5', basis: 'Exploratory hand check of one class; not in released data', verdict: 'partly' },
-  { area: 'AI rating', metric: 'Same scores across two runs', result: '124 of 128', basis: 'Not yet checked by a professor', verdict: 'partly' },
+  { area: 'AI rating', metric: 'Same scores across two repeated runs', result: '124 of 128', basis: 'Not yet checked by a professor', verdict: 'partly' },
 ];
 
 export const can: { what: string; how: string; verdict: Verdict }[] = [

@@ -21,8 +21,8 @@ portal, faces are blurred, and the recordings, face templates and voiceprints ne
 | Can it name a face the camera shows? | Yes. 0 certain errors in 1,393 named faces at 1080p. |
 | Can it take attendance? | It can say who was there, not who was absent: the camera showed students 11–33% of each class. 55 of 58 students were seen at least once across five classes. |
 | How fast? | One-minute attendance reads three frames per student shot and finds 79–86% of what a full scan finds, in 44–61 s. The core steps take about 10 minutes per class on one laptop, most of it transcription. |
-| Can it tell who spoke? | From voices, yes, once the instructor has called a student by name: the print named the right student in 4 of 4 held-out classes, with median similarity 0.70 for the same student and 0.09 for different students. From video, no. |
-| Can it judge contributions? | A rubric applied by Claude was consistent (124 of 128 scores identical across two runs) but has not been checked against an instructor. |
+| Can it tell who spoke? | From voices, yes, once the instructor has called a student by name: the print named the right student in every held-out test (4 of 4 with a face check, 6 of 6 without), with median similarity 0.70 for the same student and 0.09 for different students. From video, no. |
+| Can it judge contributions? | A rubric applied by Claude was consistent (124 of 128 scores identical across two repeated runs of the same model) but has not been checked against an instructor. |
 
 ## How it works
 
@@ -86,7 +86,7 @@ sequenceDiagram
 | `analysis/` | The experiments in the paper: face indexing, presence, camera shots, voice bootstrapping, transcription speed, fast attendance, figures, the de-identified portal build |
 | `portal-ui/` | The portal (React, shadcn/ui). `VITE_PUBLIC=1` builds the de-identified edition |
 | `paper/` | The paper (LaTeX, compile with [Tectonic](https://tectonic-typesetting.github.io): `tectonic -X compile main.tex`) |
-| `data/` | De-identified results and portal data |
+| `data/` | De-identified results (`results.json`), measured timings (`timings.csv`), every voice anchor, held-out test and named comment (`voice_*.csv`), and the portal's data |
 | `tests/` | Pipeline tests (`pytest tests`) |
 
 ## Running it on your own recordings

@@ -11,7 +11,9 @@ Then:
   - leave-one-class-out: each student's print from their anchors in the OTHER classes;
     does it name their anchors in this class correctly?
   - coverage: share of all student talk (3 s+ turns) the prints can name at 0.5 / margin 0.05
-Writes name_to_voice.json next to the first session.
+Writes name_to_voice.json (FACE_CHECK=1, the default: the called student's face must be on camera during the reply)
+or name_to_voice_noface.json (FACE_CHECK=0, the portal's rule) next to the first session, with every anchor
+and every held-out test listed (names: private; the public build swaps them for anonymous ids).
 """
 import json
 import re
@@ -98,6 +100,7 @@ for sess in sessions:
 
 # leave-one-class-out on anchors
 tests = correct = accepted = acc_correct = 0
+test_rows = []
 for sname in voices:
     prints = defaultdict(list)
     for s2, ti, stu in anchors:
@@ -115,9 +118,12 @@ for sname in voices:
         o = np.argsort(-sims)[:2]
         tests += 1
         correct += keys[o[0]] == stu
-        if sims[o[0]] >= 0.5 and sims[o[0]] - sims[o[1]] >= 0.05:
+        ok = bool(sims[o[0]] >= 0.5 and sims[o[0]] - sims[o[1]] >= 0.05)
+        if ok:
             accepted += 1
             acc_correct += keys[o[0]] == stu
+        test_rows.append({"class": sname[:10], "turn": ti, "student": stu, "top1": keys[o[0]], "similarity": round(float(sims[o[0]]), 3),
+                          "lead": round(float(sims[o[0]] - sims[o[1]]), 3), "accepted": ok, "prints_from_other_classes": len(keys)})
 
 # coverage with prints from all anchors
 prints = defaultdict(list)
@@ -146,6 +152,9 @@ res = {"section": section, "classes": per, "anchors_total": len(anchors),
            1 for c in Counter(stu for _, stu in {(s, stu) for s, _, stu in anchors}).values() if c >= 2),
        "leave_one_class_out": {"tests": tests, "top1_correct": correct,
                                "accepted_at_0.5": accepted, "accepted_correct": acc_correct},
-       "coverage": cov}
-(sessions[0] / "name_to_voice.json").write_text(json.dumps(res, indent=2))
+       "coverage": cov, "face_check": FACE_CHECK,
+       "anchors": [{"class": s2[:10], "turn": ti, "start": next(t["start"] for t in json.loads((Path(next(x for x in map(str, sessions) if Path(x).name == s2)) / "turns_v2.json").read_text()) if t["i"] == ti),
+                    "student": stu} for s2, ti, stu in anchors],
+       "tests_detail": test_rows}
+(sessions[0] / ("name_to_voice.json" if FACE_CHECK else "name_to_voice_noface.json")).write_text(json.dumps(res, indent=2))
 print(json.dumps(res, indent=2))
