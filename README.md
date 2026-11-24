@@ -106,5 +106,5 @@ out of scope by design.
 
 ## Citation
 
-Abhinav Gupta. *Lecture Capture as a Classroom Sensor: Automated Attendance and Participation from Existing
+Abhinav Gupta and Tess Rubin. *Lecture Capture as a Classroom Sensor: Automated Attendance and Participation from Existing
 Recordings in an MBA Course.* Working paper, UC Berkeley, November 2026.
