@@ -20,8 +20,8 @@ portal, faces are blurred, and the recordings, face templates and voiceprints ne
 |---|---|
 | Can it name a face the camera shows? | Yes. 0 certain errors in 1,393 named faces at 1080p. |
 | Can it take attendance? | It can say who was there, not who was absent: the camera showed students 11–33% of each class. 55 of 58 students were seen at least once across five classes. |
-| How fast? | One-minute attendance reads three frames per camera shot and finds 86–88% of what a full scan finds. The full pipeline takes 10–12 minutes per class on one laptop. |
-| Can it tell who spoke? | From voices, yes, once the instructor has called a student by name: 11 of 11 held-out comments within a class, 6 of 6 across classes. From video, no. |
+| How fast? | One-minute attendance reads three frames per student shot and finds 79–86% of what a full scan finds, in 44–61 s. The core steps take about 10 minutes per class on one laptop, most of it transcription. |
+| Can it tell who spoke? | From voices, yes, once the instructor has called a student by name: the print named the right student in 4 of 4 held-out classes, with median similarity 0.70 for the same student and 0.09 for different students. From video, no. |
 | Can it judge contributions? | A rubric applied by Claude was consistent (124 of 128 scores identical across two runs) but has not been checked against an instructor. |
 
 ## How it works

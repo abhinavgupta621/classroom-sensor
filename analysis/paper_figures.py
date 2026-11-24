@@ -168,13 +168,16 @@ save(fig, "f07_class_timeline")
 
 # ---------------------------------------------------------------- F8 fast attendance
 fig, ax = plt.subplots(figsize=(6.4, 3.2))
-pts = {"Oct 8 (1080p)": [(135, 37, 57), (225, 38, 77), (7200, 43, 600)], "Sep 22 (576p)": [(165, 34, 59), (275, 37, 65), (7200, 43, 600)]}
+# Measured by analysis/fast_attendance.py (saved as fast_attendance.json); the full scan reads one frame a second.
+fast = {lbl: json.loads((MEDIA / f"{d}-core-section-a" / "fast_attendance.json").read_text()) for lbl, d in [("Oct 8 (1080p)", "2026-10-08"), ("Sep 22 (576p)", "2026-09-22")]}
+pts = {k: [(v["frames_matched"], v["students_named"], round(v["total_s"])), (7200, v["full_1fps_named"], None)] for k, v in fast.items()}
 for (k, v), col in zip(pts.items(), [INK, OSKI]):
     ax.plot([p[0] for p in v], [p[1] for p in v], "o-", color=col, label=k)
     for f, n, t in v:
-        ax.annotate(f"{t}s", (f, n), textcoords="offset points", xytext=(4, -10), fontsize=7, color=MUTED)
+        if t:
+            ax.annotate(f"{t} s", (f, n), textcoords="offset points", xytext=(4, -10), fontsize=7, color=MUTED)
 ax.set_xscale("log"); ax.set_xlabel("frames examined (log)"); ax.set_ylabel("students recognised")
-ax.set_title("A few frames per camera shot recovers ~86–88%"); ax.legend(frameon=False, fontsize=8)
+ax.set_title("Three frames per student shot find " + "–".join(f"{100 * v['students_named'] / v['full_1fps_named']:.0f}" for v in sorted(fast.values(), key=lambda v: v["students_named"] / v["full_1fps_named"])) + "% of a full scan"); ax.legend(frameon=False, fontsize=8)
 save(fig, "f08_fast_attendance")
 
 # ---------------------------------------------------------------- F9 voiceprints: same vs different speaker
@@ -256,7 +259,7 @@ from_findings = [("Download a class", 1), ("Find camera shots", 0.6), ("Attendan
                  ("Gallery and room views", 0.25), ("Summary and review sheet", 1.5), ("Rubric scoring", 1)]
 fig, ax = plt.subplots(figsize=(6.4, 3.4))
 ax.barh([k for k, _ in from_findings][::-1], [v for _, v in from_findings][::-1], color=OSKI)
-ax.set_xlabel("minutes per 2-hour class, one Mac"); ax.set_title("Pipeline step times")
+ax.set_xlabel("minutes per 2-hour class, one Mac"); ax.set_title("Approximate step times (measured ones are in results.json)")
 save(fig, "f13_timings")
 
 # ---------------------------------------------------------------- Images: blurred class frame with detections, author frame, panorama
@@ -312,6 +315,19 @@ res = {
                     "different_median": round(float(np.median(diff)), 3) if diff else None},
     "rubric_agreement": agree, "presence_single_class": load(S8 / "presence.json"),
     "across_sessions": load(S8 / "across_sessions.json"),
+    # Measured step times per class: the shot-finding pass and the mlx transcription (counts only, no names).
+    "timings": {s["date"]: {"find_shots_s": load(MEDIA / s["id"] / "shots.json")["decode_s"],
+                            "transcribe_s": load(MEDIA / s["id"] / "timing_mlx.json")["transcribe_s"],
+                            "audio_minutes": load(MEDIA / s["id"] / "timing_mlx.json")["audio_minutes"],
+                            "section_first_names_in_transcript": load(MEDIA / s["id"] / "timing_mlx.json")["count"]} for s in sessions},
+    "fast_attendance": {d: load(MEDIA / f"{d}-core-section-a" / "fast_attendance.json") for d in ("2026-10-08", "2026-09-22")},
+    # Two anchoring rules: the evaluation also requires the called student's face on camera during the reply
+    # (name_to_voice above); the portal does not, so it learns more voices.
+    "portal_voices": {"rule": "name ends the instructor's sentence; a non-instructor reply of 5 s or more starts within 20 s; no face check",
+                      "anchors": sum(v["anchors"] for v in portal["voices"]["learned"]), "manual_labels": sum(v["manual"] for v in portal["voices"]["learned"]),
+                      "voiceprints": len(portal["voices"]["learned"]), "named_comments": len(portal["comments"]),
+                      "named_by_voice_match": sum(1 for c in portal["comments"] if c["how"] == "voice match"),
+                      "voice_matches_in_classes_where_camera_never_recognised_student": sum(1 for c in portal["comments"] if c["how"] == "voice match" and not c["seen_that_day"])},
 }
 (OUT / "data" / "results.json").write_text(json.dumps(res, indent=1))
 print("wrote results.json")

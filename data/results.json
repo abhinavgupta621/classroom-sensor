@@ -1351,5 +1351,78 @@
    "5": 13
   },
   "median_seconds_on_camera_when_seen": 125.0
+ },
+ "timings": {
+  "2026-09-22": {
+   "find_shots_s": 27.4,
+   "transcribe_s": 387.4,
+   "audio_minutes": 119.9,
+   "section_first_names_in_transcript": 19
+  },
+  "2026-09-24": {
+   "find_shots_s": 29.2,
+   "transcribe_s": 434.3,
+   "audio_minutes": 119.9,
+   "section_first_names_in_transcript": 22
+  },
+  "2026-09-29": {
+   "find_shots_s": 36.1,
+   "transcribe_s": 401.1,
+   "audio_minutes": 119.9,
+   "section_first_names_in_transcript": 13
+  },
+  "2026-10-06": {
+   "find_shots_s": 43.6,
+   "transcribe_s": 481.0,
+   "audio_minutes": 119.9,
+   "section_first_names_in_transcript": 14
+  },
+  "2026-10-08": {
+   "find_shots_s": 42.6,
+   "transcribe_s": 748.0,
+   "audio_minutes": 119.9,
+   "section_first_names_in_transcript": 9
+  }
+ },
+ "fast_attendance": {
+  "2026-10-08": {
+   "shots": 537,
+   "class_shots": 45,
+   "frames_matched": 135,
+   "find_shots_s": 35.2,
+   "pick_class_shots_s": 15.3,
+   "match_faces_s": 10.0,
+   "total_s": 60.5,
+   "students_named": 37,
+   "wrong_section": 0,
+   "full_1fps_named": 43,
+   "found_by_both": 37,
+   "only_fast": 0,
+   "missed_vs_full": 6
+  },
+  "2026-09-22": {
+   "shots": 394,
+   "class_shots": 55,
+   "frames_matched": 165,
+   "find_shots_s": 26.0,
+   "pick_class_shots_s": 8.5,
+   "match_faces_s": 9.7,
+   "total_s": 44.2,
+   "students_named": 34,
+   "wrong_section": 1,
+   "full_1fps_named": 43,
+   "found_by_both": 34,
+   "only_fast": 0,
+   "missed_vs_full": 9
+  }
+ },
+ "portal_voices": {
+  "rule": "name ends the instructor's sentence; a non-instructor reply of 5 s or more starts within 20 s; no face check",
+  "anchors": 21,
+  "manual_labels": 0,
+  "voiceprints": 16,
+  "named_comments": 102,
+  "named_by_voice_match": 81,
+  "voice_matches_in_classes_where_camera_never_recognised_student": 16
  }
 }

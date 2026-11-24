@@ -8,7 +8,7 @@ export const timings: { step: string; time: string; note: string }[] = [
   { step: 'Find when the camera is on students', time: '~35 s', note: 'One low-resolution pass' },
   { step: 'Attendance, fast (a few frames per shot)', time: '~1 min', note: 'Finds ~86% of what the full scan finds, no wrong names' },
   { step: 'Attendance, full (every second)', time: '8–12 min', note: 'A few more students' },
-  { step: 'Transcript (Mac GPU, large-v3-turbo)', time: '~7 min', note: '17× real time; CPU small model 15 min' },
+  { step: 'Transcript (Mac GPU, large-v3-turbo)', time: '6.5–12.5 min', note: '9.6–18.6× real time; CPU small model 15 min' },
   { step: 'Voiceprints for every comment', time: '~1 min', note: 'SpeechBrain ECAPA' },
   { step: 'Name voices (name calls + voiceprints)', time: 'seconds', note: '' },
   { step: 'Professor vs student split', time: '~5 min', note: 'Window-level, measured under load' },
@@ -16,7 +16,7 @@ export const timings: { step: string; time: string; note: string }[] = [
   { step: 'Class gallery and room views', time: '~15 s', note: '' },
   { step: 'Summary, questions, review sheet', time: '1–2 min', note: 'Claude' },
   { step: 'Rate contributions', time: '~1 min', note: 'Claude' },
-  { step: 'Everything, fast path', time: '10–12 min', note: 'Per 2-hour class, one Mac' },
+  { step: 'Everything, fast path', time: '~10 min', note: 'Per 2-hour class, one Mac; mostly transcription' },
 ];
 
 export const accuracy: { area: string; metric: string; result: string; basis: string; verdict: Verdict }[] = [
@@ -25,17 +25,17 @@ export const accuracy: { area: string; metric: string; result: string; basis: st
   { area: 'Faces', metric: 'Wrong-section people, 5 classes, ≥3 s rule', result: '3 total', basis: '~2% of names estimated wrong at 576p', verdict: 'ready' },
   { area: 'Attendance', metric: 'Students named per class (≥3 s)', result: '33–42 of 58', basis: 'True attendance unknown', verdict: 'partly' },
   { area: 'Attendance', metric: 'Seen in at least one of 5 classes', result: '55 of 58', basis: '≥3 s on camera', verdict: 'ready' },
-  { area: 'Attendance', metric: 'Fast scan vs full scan', result: '37 of 43 in 57 s', basis: '3 frames per camera shot', verdict: 'ready' },
+  { area: 'Attendance', metric: 'Fast scan vs full scan', result: '34–37 of 43 in 44–61 s', basis: '3 frames per student shot; 79–86% of a full scan', verdict: 'ready' },
   { area: 'Camera', metric: 'Time the camera shows students', result: '11–33% of class', basis: 'Oct 8 low (game day), others 23–33%', verdict: 'partly' },
   { area: 'Camera', metric: 'Speaker in the shot', result: '8 of 9', basis: 'Known speakers', verdict: 'ready' },
   { area: 'Camera', metric: 'Visual cue picks the speaker (gaze, centre, size, lips)', result: '0–1 of 8', basis: '~16 faces per shot', verdict: 'no' },
   { area: 'Name cards', metric: 'Cards readable', result: '5 of 58 students', basis: 'All 309 readings correct', verdict: 'partly' },
   { area: 'Transcript', metric: 'Professor speech clean', result: '~95%', basis: 'Claude review of the transcript', verdict: 'ready' },
   { area: 'Transcript', metric: 'Called names spelled right', result: '4 → 9–10 of 10', basis: 'Class list as hints', verdict: 'ready' },
-  { area: 'Voices', metric: 'Same class, held-out comment, right student', result: '11 of 11', basis: '8 speakers', verdict: 'ready' },
-  { area: 'Voices', metric: 'Other classes, right student', result: '6 of 6', basis: 'Name at end of the professor’s sentence', verdict: 'partly' },
-  { area: 'Voices', metric: 'Student talk named by voice so far', result: '14–30% per class', basis: '16 voiceprints after 5 classes; grows', verdict: 'partly' },
-  { area: 'Voices', metric: 'Professor vs student, mislabelled turns', result: '12 of 32 → ~5', basis: 'Window-level professor print', verdict: 'partly' },
+  { area: 'Voices', metric: 'Similarity, same vs different student', result: '0.70 vs 0.09', basis: 'Medians over 210 pairs of name-call-labelled comments', verdict: 'ready' },
+  { area: 'Voices', metric: 'Other classes, right student', result: '4 of 4', basis: 'Held-out classes; name ends the sentence and the face is on camera', verdict: 'partly' },
+  { area: 'Voices', metric: 'Student talk named by voice so far', result: '6–22% per class', basis: '16 voiceprints after 5 classes; grows', verdict: 'partly' },
+  { area: 'Voices', metric: 'Professor vs student, mislabelled turns', result: '12 of 32 → ~5', basis: 'Exploratory hand check of one class; not in released data', verdict: 'partly' },
   { area: 'AI rating', metric: 'Same scores across two runs', result: '124 of 128', basis: 'Not yet checked by a professor', verdict: 'partly' },
 ];
 

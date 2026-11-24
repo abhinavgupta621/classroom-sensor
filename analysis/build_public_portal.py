@@ -25,9 +25,12 @@ from pseudonyms import load  # noqa: E402
 
 SITE = Path(sys.argv[1]) if len(sys.argv) > 1 else Path.home() / "Downloads" / "haas-2028-vercel"
 OUT = ROOT / "data" / "portal" / "public"
-if OUT.exists():
-    shutil.rmtree(OUT)
-(OUT / "img").mkdir(parents=True)
+# Start clean but keep the Vercel link (.vercel/), so a deploy never lands in a new, unintended project.
+OUT.mkdir(parents=True, exist_ok=True)
+for p in OUT.iterdir():
+    if p.name not in (".vercel", ".env.local"):
+        shutil.rmtree(p) if p.is_dir() else p.unlink()
+(OUT / "img").mkdir()
 P, sid, fake = load()
 back = OpenCVFaces(Path.home() / ".cache" / "classroom-pilot", min_face_px=12)
 slug = lambda s: re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
@@ -143,5 +146,5 @@ if leaks:
     raise SystemExit(f"public portal would leak: {leaks[:20]}")
 (OUT / "portal.json").write_text(text)
 (OUT / "vercel.json").write_text(json.dumps({"headers": [{"source": "/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=600"}]}]}, indent=2))
-(OUT / ".vercelignore").write_text(".vercel/\n")
+(OUT / ".vercelignore").write_text(".vercel/\n.env.local\n")
 print(f"public portal: {len(roster)} students, {len(list((OUT / 'img').iterdir()))} images, no leaks")

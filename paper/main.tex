@@ -21,7 +21,7 @@
 \maketitle
 
 \begin{abstract}
-Business schools record nearly every class, yet attendance is still taken on paper and class participation is graded from memory. We ask how much of both can be recovered automatically from recordings that already exist. Using five two-hour sessions of one section (58 students) of a required MBA leadership course, captured by the school's Panopto lecture-capture system, we built an open pipeline that (i) finds when the moving room camera shows students, (ii) recognises faces against seating-chart photographs, (iii) transcribes speech with the class list as hints, (iv) separates the instructor's voice, and (v) names student voices by pairing the instructor's name calls with the voice that answers, then carrying those voiceprints across classes. Matching every face against all four sections of the course lets us count identification errors without hand labels. At 1080p, 0 of 1{,}393 named faces were certainly wrong; at the more common 576p, a 3-second presence rule held certain errors to 3 across five classes ($\approx$2\% estimated). Across the five classes 55 of 58 students were recognised at least once, but the camera showed the class only 11--33\% of the time, so the system establishes who was present, not who was absent. Reading three frames per camera shot recovered 86--88\% of a full scan in about a minute. Voiceprints seeded by name calls identified the right student in 11/11 held-out comments within a class and 6/6 across classes; no visual cue (gaze, mouth motion, centrality, size) could pick the speaker among a median of 16 faces. The full pipeline runs in 10--12 minutes per class on one laptop. We also document data-quality problems in production lecture capture and the infrastructure that would close the remaining gaps.
+Business schools record nearly every class, yet attendance is still taken on paper and class participation is graded from memory. We ask how much of both can be recovered automatically from recordings that already exist. Using five two-hour sessions of one section (58 students) of a required MBA leadership course, captured by the school's Panopto lecture-capture system, we built an open pipeline that (i) finds when the moving room camera shows students, (ii) recognises faces against seating-chart photographs, (iii) transcribes speech with the class list as hints, (iv) separates the instructor's voice, and (v) names student voices by pairing the instructor's name calls with the voice that answers, then carrying those voiceprints across classes. Matching every face against all four sections of the course lets us count identification errors without hand labels. At 1080p, 0 of 1{,}393 named faces were certainly wrong; at the more common 576p, a 3-second presence rule held certain errors to 3 across five classes ($\approx$2\% estimated). Across the five classes 55 of 58 students were recognised at least once, but the camera showed the class only 11--33\% of the time, so the system establishes who was present, not who was absent. Reading three frames per student shot found 79--86\% of the students a full scan finds, in 44--61\,s. Voiceprints seeded by name calls separated speakers well (median similarity 0.70 for the same student, 0.09 for different students) and named the right student in 4 of 4 held-out classes; no visual cue (gaze, mouth motion, centrality, size) could pick the speaker among a median of 16 faces. The core steps take about 10 minutes per class on one laptop, most of it transcription. We also document data-quality problems in production lecture capture and the infrastructure that would close the remaining gaps.
 \end{abstract}
 
 \section{Introduction}
@@ -69,7 +69,7 @@ A low-resolution pass (160$\times$90 grey, 4\,fps) over the whole recording find
 Audio is transcribed with Whisper large-v3-turbo (mlx on Apple Silicon) with the section's first names and course terms as prompt. Words form turns at pauses of 0.8\,s; each turn of $\geq$1.5\,s gets an ECAPA voiceprint. The instructor print is the largest voice cluster of one session; it transfers across sessions (cosine 0.96--0.97).
 
 \subsection{Naming voices}
-When the instructor ends a sentence with a student's first name (``\ldots[name], go.'') and a non-instructor turn of $\geq$5\,s starts within 20\,s, that turn is labelled with the student. Labelled turns form the student's voiceprint; other student turns in any class are named when they match a print at $\geq$0.50 with a 0.05 margin. A portal lets a person label unknown voice clusters, which become anchors. Figure~\ref{fig:howvoices} follows one student through the five classes.
+When the instructor ends a sentence with a student's first name (``\ldots[name], go.'') and a non-instructor turn of $\geq$5\,s starts within 20\,s, that turn is labelled with the student. Labelled turns form the student's voiceprint; other student turns in any class are named when they match a print at $\geq$0.50 with a 0.05 margin. For evaluation we also required the called student's face on camera during the reply; the portal drops that check to learn more voices. A portal lets a person label unknown voice clusters, which become anchors. Figure~\ref{fig:howvoices} follows one student through the five classes.
 
 \begin{figure*}[t]\centering
 \includegraphics[width=0.9\textwidth]{figures/e03_how_voices.png}
@@ -77,7 +77,7 @@ When the instructor ends a sentence with a student's first name (``\ldots[name],
 \end{figure*}
 
 \subsection{Evaluation without hand labels}
-Identification errors are certain cross-section matches, scaled by 229/172 to estimate within-section errors. Verification uses same-seat pairs one second apart (same person) and same-frame pairs (different people). Voice accuracy is leave-one-out over name-call-labelled turns, within and across classes.
+Identification errors are certain cross-section matches, scaled by 229/172 to estimate within-section errors. Verification uses same-seat pairs one second apart (same person) and same-frame pairs (different people). Voice accuracy is leave-one-class-out: each student's print is built from their anchors in the other classes and tested on their anchors in the held-out class.
 
 \section{Results}
 \subsection{Naming a visible face is precise}
@@ -105,7 +105,7 @@ Figures~\ref{fig:tag8} and \ref{fig:tag22} show every detected face in the busie
 \paragraph{Name cards.} On-device text recognition on zoomed tiles read 309 desk cards in 298 student shots; every reading was a real section name. Only 5 of 58 students had a card the camera could read, and the card agreed with the face above it in 15 of 22 links; all 7 disagreements were one card linked to the adjacent student.
 
 \subsection{Camera coverage limits attendance}
-The camera serves remote viewers: it follows the instructor and the active microphone. Student shots covered 22--33\% of discussion classes and 11\% of the quiz-game class (Fig.~\ref{fig:cov}). Per class the system named 33--42 of 58 students for $\geq$3\,s (Fig.~\ref{fig:att}); with that rule, certain errors across all five classes fell from 10 to 3. Counting faces seen but not named by clustering was unstable (11--28 people depending on settings), so absence cannot be inferred. Across classes coverage accumulates: 55 of 58 were recognised at least once and 31 in four or five classes (Table~\ref{tab:students}, Fig.~\ref{fig:attname}).
+The camera serves remote viewers: it follows the instructor and the active microphone. Student shots covered 22--33\% of discussion classes and 11\% of the quiz-game class (Fig.~\ref{fig:cov}). Per class the system named 33--42 of 58 students for $\geq$3\,s (Fig.~\ref{fig:att}); with that rule, certain errors across all five classes fell from 10 to 3. Counting faces seen but not named by clustering was unreliable (on 8 October it estimated 86 unnamed people in a 58-student section), so absence cannot be inferred. Across classes coverage accumulates: 55 of 58 were recognised at least once and 31 in four or five classes (Table~\ref{tab:students}, Fig.~\ref{fig:attname}).
 
 \begin{figure*}[t]\centering
 \includegraphics[width=\textwidth]{figures/f04_camera_coverage.png}
@@ -117,14 +117,14 @@ The camera serves remote viewers: it follows the instructor and the active micro
 \end{figure}
 
 \subsection{Attendance in a minute}
-Reading three frames from each student shot (135--165 frames rather than 7{,}200) found 86--88\% of the students a full scan finds, with no certain errors at 1080p, in 57--65\,s end to end; most of that is the shot-finding pass (Fig.~\ref{fig:fast}).
+Reading three frames from each student shot (135--165 frames rather than 7{,}200) found 79--86\% of the students a full scan finds (34 of 43 on 22 September, 37 of 43 on 8 October) in 44--61\,s end to end, with one certain error at 576p and none at 1080p; most of the time is the shot-finding pass (Fig.~\ref{fig:fast}).
 \begin{figure}[t]\centering
 \includegraphics[width=0.92\figw]{figures/f08_fast_attendance.png}
 \caption{Students recognised versus frames examined.}\label{fig:fast}
 \end{figure}
 
 \subsection{Speech}
-Instructor speech was $\approx$95\% clean; student points were recoverable in most turns. With the class list as a prompt, recognisable called names rose from 4 to 9--10 of 10, and 13--22 section first names appeared per class. Large-v3-turbo on the laptop GPU transcribed two hours in 6.5--7.2\,min (Fig.~\ref{fig:asr}). Pause-split turns blur speakers: 12 of 32 turns the voice split called ``student'' were the instructor, music or the quiz scorekeeper, and about 10 instructor turns contained student speech. Scanning 2\,s windows against the instructor print recovered 7 of 10 hidden student segments with 2 false alarms in 40 instructor turns.
+Instructor speech was $\approx$95\% clean; student points were recoverable in most turns. With the class list as a prompt, 9--22 section first names appeared in each class's transcript; in an exploratory comparison on one class, recognisable called names rose from 4 to 9--10 of 10. Large-v3-turbo on the laptop GPU transcribed two hours in 6.5--8.0\,min in four classes and 12.5\,min in the fifth (Fig.~\ref{fig:asr}). Pause-split turns blur speakers: a hand check of one class found turns labelled ``student'' that were the instructor, music or the quiz scorekeeper, and instructor turns that contained student speech; scanning 2\,s windows against the instructor print recovered most of the hidden student segments. These two checks were exploratory and are not in the released data.
 \begin{figure}[t]\centering
 \includegraphics[width=\figw]{figures/f11_transcription.png}
 \caption{Transcription time and recognisable called names.}\label{fig:asr}
@@ -138,7 +138,7 @@ The camera follows the microphone: all 15 genuine student comments in one class 
 \caption{Visual cues against known speakers.}\label{fig:cues}
 \end{figure}
 
-Voices separate well. Within a class, voiceprints matched 11 of 11 held-out comments (same-speaker median similarity 0.78, different-speaker 0.13). Across classes, labels from any name mention got 4 of 10; requiring the name to end the instructor's sentence and a reply of $\geq$5\,s got 6 of 6 (Fig.~\ref{fig:voice}). The single same-student pair at 0.07 exposed a mislabelled anchor, which is how errors in this method surface. After five classes, 16 students have voiceprints (Table~\voicetable\ref{tab:voices}) and 102 comments are named (81 by voice match), yet only 6--22\% of student-side audio per class. Sixteen voice matches come from a class in which the camera never recognised that student; the portal flags them.
+Voices separate well: across 210 pairs of name-call-labelled comments, the median similarity was 0.70 for the same student and 0.09 for different students (Fig.~\ref{fig:voice}). The single same-student pair at 0.07 exposed a mislabelled anchor, which is how errors in this method surface. With the face check, the evaluation found 14 anchors for 10 students; in leave-one-class-out tests each print named its student correctly in the held-out class 4 of 4 times. An earlier, looser rule (any mention of a name, not only at the end of a sentence) labelled replies wrongly, which is why the rule asks for the name to end the instructor's sentence. Without the face check, the portal finds 21 anchors and learns 16 voiceprints (Table~\voicetable\ref{tab:voices}); 102 comments are named (81 by voice match), yet only 6--22\% of student-side audio per class. Sixteen of those voice matches come from classes in which the camera never recognised that student; the portal flags them for review.
 
 \begin{figure}[t]\centering
 \includegraphics[width=0.92\figw]{figures/f09_voice_similarity.png}
@@ -158,7 +158,7 @@ Two independent Claude passes scored each student turn of one class on four 1--5
 \end{figure}
 
 \subsection{Speed and cost}
-Per two-hour class on one laptop: download $\approx$1\,min, shot finding 35\,s, fast attendance $\approx$1\,min, transcript $\approx$7\,min, voiceprints $\approx$1\,min (Fig.~\ref{fig:time}). On a cloud GPU we estimate $\approx$\$0.10 per class.
+Per two-hour class on one laptop, measured: shot finding 27--44\,s, fast attendance 44--61\,s, transcript 6.5--12.5\,min; estimated: download and voiceprints about 1\,min each (Fig.~\ref{fig:time}). On a cloud GPU we estimate $\approx$\$0.10 per class.
 \begin{figure}[t]\centering
 \includegraphics[width=0.92\figw]{figures/f13_timings.png}
 \caption{Step times per class on one Mac.}\label{fig:time}
@@ -177,13 +177,13 @@ Per two-hour class on one laptop: download $\approx$1\,min, shot finding 35\,s, 
 \end{figure}
 
 \section{Limitations}
-One section, one room, one instructor, five sessions. No attendance register, so attendance recall is unmeasured. Voice results rest on 8--16 speakers and a handful of held-out comments. Error estimates assume errors spread evenly across the gallery. Contribution scores are not validated against the instructor, and we did not test for differences in error by accent, gender or skin tone, which must precede any use affecting students.
+One section, one room, one instructor, five sessions. No attendance register, so attendance recall is unmeasured. Voice results rest on 10--16 speakers and four held-out tests. Error estimates assume errors spread evenly across the gallery. Contribution scores are not validated against the instructor, and we did not test for differences in error by accent, gender or skin tone, which must precede any use affecting students.
 
 \section{What it would take}
 A teaching assistant's tick sheet for three to five classes (true recall); the room controller's log of which desk microphone was pressed (speaker seat, likely free); keeping original-resolution camera files; a fixed wide camera on the student tiers (\$1.4--4.3k per room); a ceiling microphone array with talker position if no microphone log exists (\$4--7.6k); Panopto administrative API access; an instructor's blind scores on 20--30 comments; and P4-approved storage with a GPU host ($\approx$\$0.10 per class).
 
 \section{Ethics and data handling}
-Students consented to face recognition, voiceprints and recording, and the administration approved this research use. Face templates are P4 data under UC Berkeley's classification and per-student records are FERPA education records. Recordings, templates and voiceprints remain on the pilot machine; recordings, face templates, voiceprints and the identified results stay on the pilot machine. This public edition replaces student names with anonymous ids and blurs student faces; the companion portal uses pseudonyms and has no audio or transcript text. Publication beyond the institution should pass human-subjects review. We did not infer emotion or attention, rank students publicly or grade automatically.
+Students consented to face recognition, voiceprints and recording, and the administration approved this research use. Face templates are P4 data under UC Berkeley's classification and per-student records are FERPA education records. Recordings, templates and voiceprints remain on the pilot machine; the identified results stay there too. This public edition replaces student names with anonymous ids and blurs student faces; the companion portal uses pseudonyms and has no audio or transcript text. Publication beyond the institution should pass human-subjects review. We did not infer emotion or attention, rank students publicly or grade automatically.
 
 \section{Conclusion}
 Lecture capture that schools already run can tell an instructor who was in the room and what was said. Face naming was precise, transcripts were accurate once the model had the class list, and the instructor's habit of calling students by name was enough to learn their voices. The remaining gaps come from where the camera points and from not knowing which desk microphone was pressed. A microphone log, a fixed wide camera on the student tiers and a week of hand-taken attendance would close most of them.
