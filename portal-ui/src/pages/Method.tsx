@@ -23,7 +23,6 @@ const ETHICS = [
   ['Consent', 'Collected by the administration this year for face, voiceprint and all-party recording.'],
   ['Data level', 'Face templates are P4 at Berkeley; joined to attendance, the dataset is P4. Today it lives on one Mac.'],
   ['FERPA', 'Per-student attendance and participation are education records; professors should own them.'],
-  ['Publishing research', 'Needs human-subjects review (CPHS) separately from operational consent.'],
   ['Never', 'Emotion or attention inference (banned in EU education since Feb 2025), public rankings, automatic grades.'],
 ];
 
